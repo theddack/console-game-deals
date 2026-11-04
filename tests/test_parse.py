@@ -4,8 +4,8 @@ from datetime import date
 from collector.common import load_config, won
 from collector.hotdeals import classify, parse_arca
 from collector.main import mark
-from collector.nintendo import parse_list
-from collector.playstation import clean_name, parse_product
+from collector.nintendo import parse_list, parse_prices
+from collector.playstation import clean_name, parse_product, pick_image
 
 CFG = load_config()
 
@@ -67,6 +67,12 @@ class Arca(unittest.TestCase):
 
 
 NS = '''
+<div class="product-item-info" id="product-item-info_17987" data-container="product-grid">
+<a href="https://store.nintendo.co.kr/70010000102606" class="product photo product-item-photo" tabindex="-1">
+<p class="label_platform">Nintendo Switch 2</p>
+<img class="product-image-photo"
+src="https://store.nintendo.co.kr/media/catalog/product/cache/x/5/c/a.jpg"
+loading="lazy"/>
 <a class="product-item-link"
    href="https://store.nintendo.co.kr/70010000102606">
     Monster Hunter Wilds                            </a>
@@ -78,12 +84,25 @@ data-price-type="oldPrice"
 class="price-wrapper "></span>
 '''
 
+PRICES = {"country": "KR", "prices": [
+    {"title_id": 70010000102606, "sales_status": "onsale",
+     "regular_price": {"raw_value": "45800"},
+     "discount_price": {"raw_value": "34350", "end_datetime": "2027-01-07T14:59:59Z"}},
+    {"title_id": 70010000000001, "sales_status": "onsale", "regular_price": {"raw_value": "10000"}},
+    {"title_id": 70010000000002, "sales_status": "not_found"},
+]}
+
 
 class Nintendo(unittest.TestCase):
-    def test_item(self):
+    def test_list_item(self):
         (d,) = parse_list(NS)
-        self.assertEqual((d["id"], d["name"], d["price"], d["regular"], d["discount"]),
-                         ("ns:70010000102606", "Monster Hunter Wilds", 34350, 45800, 25))
+        self.assertEqual((d["nsuid"], d["name"], d["price"], d["regular"], d["platform"]),
+                         ("70010000102606", "Monster Hunter Wilds", 34350, 45800, "Nintendo Switch 2"))
+        self.assertTrue(d["img"].endswith("/a.jpg"))
+
+    def test_prices_only_discounted(self):
+        self.assertEqual(parse_prices(PRICES),
+                         {"70010000102606": {"price": 34350, "regular": 45800, "ends": "2027-01-07T14:59:59Z"}})
 
 
 class PlayStation(unittest.TestCase):
@@ -94,6 +113,11 @@ class PlayStation(unittest.TestCase):
         self.assertEqual((d["name"], d["price"], d["regular"], d["discount"], d["type"]),
                          ("사이버펑크 2077", 21920, 54800, 60, "게임"))
         self.assertIsNone(parse_product({"id": "Y", "name": "a", "price": {"basePrice": "1,000원", "discountedPrice": "1,000원"}}))
+
+    def test_image(self):
+        media = [{"role": "SCREENSHOT", "type": "IMAGE", "url": "s"}, {"role": "GAMEHUB_COVER_ART", "type": "IMAGE", "url": "c"}]
+        self.assertEqual(pick_image(media), "c?w=160")
+        self.assertIsNone(pick_image([]))
 
     def test_clean_name(self):
         self.assertEqual(clean_name("Outward (중국어(간체자), 한국어, 영어)"), "Outward")
