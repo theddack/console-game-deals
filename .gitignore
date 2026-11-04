@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+_site/
+# 매 수집마다 새로 만드는 큰 파일 (페이지에만 올린다)
+data/games.json

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>콘솔 할인 모아보기</title>
+<meta name="description" content="PS5·닌텐도 스위치 기기 핫딜과 한국 스토어 게임 할인을 하루 두 번 모아 둔 페이지">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>🎮 콘솔 할인 모아보기</h1>
+    <p class="meta" id="meta">불러오는 중…</p>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="hot" aria-selected="true">핫딜</button>
+      <button role="tab" data-tab="nintendo">닌텐도</button>
+      <button role="tab" data-tab="playstation">PlayStation</button>
+      <button role="tab" data-tab="news">소식</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="tab-hot" class="panel">
+    <div class="controls">
+      <div class="chips" data-group="kind">
+        <button data-v="all" class="on">전체</button>
+        <button data-v="device">기기·주변기기</button>
+        <button data-v="game">게임</button>
+      </div>
+    </div>
+    <ul class="list" id="hot-list"></ul>
+  </section>
+
+  <section id="tab-games" class="panel" hidden>
+    <div class="controls">
+      <input type="search" id="q" placeholder="게임 이름 검색" autocomplete="off">
+      <div class="row">
+        <select id="sort" aria-label="정렬">
+          <option value="save">아끼는 금액 순</option>
+          <option value="disc">할인율 순</option>
+          <option value="low">가격 낮은 순</option>
+          <option value="end">마감 임박 순</option>
+        </select>
+        <select id="mindisc" aria-label="최소 할인율">
+          <option value="0">할인율 전체</option>
+          <option value="50">50% 이상</option>
+          <option value="70">70% 이상</option>
+          <option value="90">90% 이상</option>
+        </select>
+      </div>
+      <div class="chips toggles">
+        <button data-t="big" class="on">정가 2만원 이상</button>
+        <button data-t="lowest">새 최저가만</button>
+        <button data-t="base" class="ps-only">본편·에디션만</button>
+        <button data-t="noplus" class="ps-only">PS Plus 전용 빼기</button>
+      </div>
+    </div>
+    <p class="count" id="count"></p>
+    <ul class="list games" id="game-list"></ul>
+    <button class="more" id="more" hidden>더 보기</button>
+  </section>
+
+  <section id="tab-news" class="panel" hidden>
+    <ul class="list" id="news-list"></ul>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  핫딜은 루리웹·뽐뿌·아카라이브 게시글 제목과 링크만, 게임 가격은 닌텐도·PlayStation 한국 스토어 기준입니다.
+  가격은 바뀔 수 있으니 구매 전 원문에서 확인하세요. 최저가는 이 페이지가 수집을 시작한 뒤의 기록입니다.
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
