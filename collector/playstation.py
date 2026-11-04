@@ -42,6 +42,19 @@ def clean_name(name: str) -> str:
     return _LANGS.sub("", name.strip()) or name.strip()
 
 
+IMG_ROLES = ["MASTER", "GAMEHUB_COVER_ART", "EDITION_KEY_ART", "PORTRAIT_BANNER", "FOUR_BY_THREE_BANNER"]
+
+
+def pick_image(media: list | None) -> str | None:
+    """표지로 쓸 이미지 주소 (작은 크기로). 이미지는 저장하지 않고 주소만 건다."""
+    imgs = [m for m in media or [] if m.get("type") == "IMAGE" and m.get("url")]
+    for role in IMG_ROLES:
+        for m in imgs:
+            if m.get("role") == role:
+                return m["url"] + "?w=160"
+    return imgs[0]["url"] + "?w=160" if imgs else None
+
+
 def parse_product(p: dict) -> dict | None:
     pr = p.get("price") or {}
     price, regular = won(pr.get("discountedPrice")), won(pr.get("basePrice"))
@@ -53,7 +66,7 @@ def parse_product(p: dict) -> dict | None:
     cls = p.get("storeDisplayClassification") or ""
     return {
         "id": f"ps:{p['id']}", "store": "playstation", "name": clean_name(p.get("name", "")),
-        "url": PRODUCT.format(id=p["id"]), "price": price, "regular": regular,
+        "url": PRODUCT.format(id=p["id"]), "img": pick_image(p.get("media")), "price": price, "regular": regular,
         "discount": int(disc.group(1)) if disc else round((regular - price) * 100 / regular),
         "platforms": p.get("platforms") or [], "type": KIND.get(cls, cls),
         "plus": bool(pr.get("isTiedToSubscription")),  # PS Plus 가입자만 받는 할인

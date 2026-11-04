@@ -87,9 +87,6 @@ def run() -> int:
     today = now.date()
     hist = {k: v for k, v in hist.items() if (today - date.fromisoformat(v[3])).days <= FORGET_DAYS}
     save_json(LOWEST, hist, one_per_line=True)
-    for key in ("nintendo", "playstation"):
-        for d in games[key]:
-            d.pop("nsuid", None)
     save_json(GAMES, games, compact=True)
 
     if failed:

@@ -87,10 +87,11 @@ function renderGames() {
     : `조건에 맞는 할인 ${items.length.toLocaleString()}개`;
   $("#game-list").innerHTML = items.length ? items.slice(0, state.shown).map((d) => `
     <li><a class="item" href="${esc(d.url)}" target="_blank" rel="noopener">
+      <div class="thumb">${d.img ? `<img src="${esc(d.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</div>
       <div>
         <div class="t">${esc(d.name)}</div>
         <div class="sub">
-          <span class="badge ${ps ? "ps" : "ns"}">${ps ? (d.platforms || []).join("·") || "PS" : "Switch"}</span>
+          <span class="badge ${ps ? "ps" : "ns"}">${esc((d.platforms || []).join("·") || (ps ? "PS" : "Switch"))}</span>
           ${d.type && d.type !== "게임" ? `<span>${esc(d.type)}</span>` : ""}
           ${d.wish ? `<span class="badge wish">위시리스트</span>` : ""}
           ${d.new_low ? `<span class="badge low">새 최저가 (이전 ${won(d.prev_low)})</span>` : d.at_low ? `<span class="badge low">최저가와 같음</span>` : ""}
