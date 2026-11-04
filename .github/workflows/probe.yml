@@ -1,0 +1,24 @@
+name: probe
+# 임시 점검: Actions 서버에서 닌텐도·아카라이브 응답 확인 (확인 후 삭제)
+on:
+  push:
+    branches: [fix/actions-sources]
+    paths: [".github/workflows/probe.yml"]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe
+        run: |
+          B="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          P="Mozilla/5.0 (compatible; console-game-deals/0.1; +https://github.com/theddack/console-game-deals)"
+          for ua in "$P" "$B"; do
+            echo "== UA: ${ua:0:40}"
+            curl -s -A "$ua" -L -o ns.html -w "nintendo %{http_code} %{size_download} %{url_effective}\n" "https://store.nintendo.co.kr/digital/sale?product_list_limit=48&p=1"
+            grep -o "<title>[^<]*" ns.html | head -1; grep -c "product-item-link" ns.html
+            curl -s -A "$ua" -o arca.html -w "arca %{http_code} %{size_download}\n" "https://arca.live/b/hotdeal"
+            grep -o "<title>[^<]*" arca.html | head -1
+          done
+          curl -s -o /dev/null -w "ec-price %{http_code}\n" "https://api.ec.nintendo.com/v1/price?country=KR&lang=ko&ids=70010000102606"
+          curl -s -o /dev/null -w "nintendo-main %{http_code} %{url_effective}\n" -L "https://store.nintendo.co.kr/"
+          head -c 600 ns.html

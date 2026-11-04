@@ -61,7 +61,12 @@ def _add_end_dates(items: list[dict]) -> None:
 def collect() -> list[dict]:
     items, seen = [], set()
     for page in range(1, MAX_PAGES + 1):
-        got = parse_list(fetch(LIST.format(page=page)).decode("utf-8", "replace"))
+        raw = fetch(LIST.format(page=page)).decode("utf-8", "replace")
+        got = parse_list(raw)
+        if page == 1 and not got:  # 0개면 성공이 아니라 실패로 본다 (차단·페이지 구조 변경)
+            title = re.search(r"<title>(.*?)</title>", raw, re.S)
+            raise RuntimeError(f"할인 목록이 비어 있음 (페이지 {len(raw)}자, 제목 {title.group(1).strip()[:60] if title else '없음'!r}, "
+                               f"상품 링크 {raw.count('product-item-link')}개)")
         new = [d for d in got if d["id"] not in seen]
         if not new:  # 마지막 페이지를 넘기면 마지막 페이지가 다시 나온다
             break
