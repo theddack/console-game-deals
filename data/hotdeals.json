@@ -1,9 +1,49 @@
 {
- "updated": "2026-11-05T08:18+09:00",
+ "updated": "2026-11-05T15:56+09:00",
  "errors": [
   "아카라이브"
  ],
  "items": [
+  {
+   "id": "루리웹:108725",
+   "source": "루리웹",
+   "title": "[알리] 스컬앤코 NS2 점프게이트독(25,950원~)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108725",
+   "price": 25950,
+   "kind": "game",
+   "posted": "2026-11-05T12:04+09:00",
+   "first_seen": "2026-11-05T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108717",
+   "source": "루리웹",
+   "title": "[소프라노몰] 젤다의 전설 - 시간의 오카리나 . 발매 기념 이벤트!",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108717",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-05T10:02+09:00",
+   "first_seen": "2026-11-05T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108712",
+   "source": "루리웹",
+   "title": "[닌텐도스토어] 시간의 오카리나 젤다의전설 악기(59,800/0)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108712",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-05T09:23+09:00",
+   "first_seen": "2026-11-05T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108709",
+   "source": "루리웹",
+   "title": "[네이버] 젤다의 전설 시간의 오카리나 키캡특전 (88,000원/무배)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108709",
+   "price": 88000,
+   "kind": "game",
+   "posted": "2026-11-05T08:35+09:00",
+   "first_seen": "2026-11-05T15:56+09:00"
+  },
   {
    "id": "루리웹:108706",
    "source": "루리웹",
