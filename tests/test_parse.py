@@ -4,7 +4,7 @@ from datetime import date
 from collector.common import load_config, won
 from collector.hotdeals import classify, parse_arca
 from collector.main import mark
-from collector.nintendo import parse_list, parse_prices
+from collector.nintendo import parse_filters, parse_list, parse_prices, platform_label
 from collector.playstation import clean_name, parse_product, pick_image
 
 CFG = load_config()
@@ -69,7 +69,8 @@ class Arca(unittest.TestCase):
 NS = '''
 <div class="product-item-info" id="product-item-info_17987" data-container="product-grid">
 <a href="https://store.nintendo.co.kr/70010000102606" class="product photo product-item-photo" tabindex="-1">
-<p class="label_platform">Nintendo Switch 2</p>
+<div class="category-product-item-released">
+<span>발매</span> 26.12.4</div>
 <img class="product-image-photo"
 src="https://store.nintendo.co.kr/media/catalog/product/cache/x/5/c/a.jpg"
 loading="lazy"/>
@@ -96,9 +97,17 @@ PRICES = {"country": "KR", "prices": [
 class Nintendo(unittest.TestCase):
     def test_list_item(self):
         (d,) = parse_list(NS)
-        self.assertEqual((d["nsuid"], d["name"], d["price"], d["regular"], d["platform"]),
-                         ("70010000102606", "Monster Hunter Wilds", 34350, 45800, "Nintendo Switch 2"))
+        self.assertEqual((d["nsuid"], d["name"], d["price"], d["regular"], d["released"]),
+                         ("70010000102606", "Monster Hunter Wilds", 34350, 45800, "2026-12-04"))
         self.assertTrue(d["img"].endswith("/a.jpg"))
+
+    def test_filters(self):
+        page = ('<a href="https://store.nintendo.co.kr/digital/sale?label_platform=4679&amp;product_list_limit=48">'
+                'Nintendo Switch 2 <span class="count">112<span> 건</span></span></a>'
+                '<a href="https://store.nintendo.co.kr/digital/sale?game_category=19">RPG <span class="count">363 건</span></a>')
+        f = parse_filters(page)
+        self.assertEqual(f, {"label_platform": {"4679": "Nintendo Switch 2"}, "game_category": {"19": "RPG"}})
+        self.assertEqual(platform_label("Nintendo Switch 2"), "Switch 2")
 
     def test_prices_only_discounted(self):
         self.assertEqual(parse_prices(PRICES),
@@ -113,6 +122,13 @@ class PlayStation(unittest.TestCase):
         self.assertEqual((d["name"], d["price"], d["regular"], d["discount"], d["type"]),
                          ("사이버펑크 2077", 21920, 54800, 60, "게임"))
         self.assertIsNone(parse_product({"id": "Y", "name": "a", "price": {"basePrice": "1,000원", "discountedPrice": "1,000원"}}))
+
+    def test_plus_only_discount(self):
+        d = parse_product({"id": "Z", "name": "Frog Sqwad", "price": {
+            "basePrice": "6,800원", "discountedPrice": "6,800원", "discountText": None, "upsellText": "20% 할인"}})
+        self.assertEqual((d["price"], d["discount"], d["plus"]), (5440, 20, True))
+        self.assertIsNone(parse_product({"id": "F", "name": "Apex", "price": {
+            "basePrice": "0원", "discountedPrice": "0원", "isFree": True, "upsellText": "에센셜"}}))
 
     def test_image(self):
         media = [{"role": "SCREENSHOT", "type": "IMAGE", "url": "s"}, {"role": "GAMEHUB_COVER_ART", "type": "IMAGE", "url": "c"}]
