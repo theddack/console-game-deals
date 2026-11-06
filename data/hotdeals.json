@@ -1,9 +1,57 @@
 {
- "updated": "2026-11-06T03:05+09:00",
- "errors": [
-  "아카라이브"
- ],
+ "updated": "2026-11-06T15:56+09:00",
+ "errors": [],
  "items": [
+  {
+   "id": "루리웹:108768",
+   "source": "루리웹",
+   "title": "[게임몰] PS4/NS 마법사의 밤 한정판 예약 판매 / 88,000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108768",
+   "price": 88000,
+   "kind": "game",
+   "posted": "2026-11-06T12:00+09:00",
+   "first_seen": "2026-11-06T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108766",
+   "source": "루리웹",
+   "title": "[겜우리] PS4/NS 마법사의 밤 한정판/일반판 12시 예약 (8만 8천원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108766",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-06T11:38+09:00",
+   "first_seen": "2026-11-06T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108760",
+   "source": "루리웹",
+   "title": "[PSN] 플레이스테이션 블랙 프라이데이 세일 / 가격 다양",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108760",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-06T10:23+09:00",
+   "first_seen": "2026-11-06T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108758",
+   "source": "루리웹",
+   "title": "[디지털터치] PS5 캐슬바니아 벨몬트의 저주 미드나이트 에디션/46,000/유배",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108758",
+   "price": 46000,
+   "kind": "game",
+   "posted": "2026-11-06T10:05+09:00",
+   "first_seen": "2026-11-06T15:56+09:00"
+  },
+  {
+   "id": "루리웹:108757",
+   "source": "루리웹",
+   "title": "[11번가] 젤다의전설 시간의 오카리나 +메탈코인 (88,000원/3,000원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108757",
+   "price": 88000,
+   "kind": "game",
+   "posted": "2026-11-06T09:50+09:00",
+   "first_seen": "2026-11-06T15:56+09:00"
+  },
   {
    "id": "루리웹:108741",
    "source": "루리웹",
