@@ -38,11 +38,19 @@
     <div class="controls">
       <input type="search" id="q" placeholder="게임 이름 검색" autocomplete="off">
       <div class="row">
+        <select id="platform" aria-label="기종"></select>
+        <select id="genre" aria-label="장르"></select>
+        <select id="age" aria-label="발매 시기"></select>
+      </div>
+      <div class="row">
         <select id="sort" aria-label="정렬">
           <option value="save">아끼는 금액 순</option>
+          <option value="pop" class="ps-only">인기 순 (최근 30일 판매)</option>
           <option value="disc">할인율 순</option>
           <option value="low">가격 낮은 순</option>
-          <option value="end">마감 임박 순</option>
+          <option value="new">출시일 최신 순</option>
+          <option value="old">출시일 오래된 순</option>
+          <option value="end" class="ns-only">마감 임박 순</option>
         </select>
         <select id="mindisc" aria-label="최소 할인율">
           <option value="0">할인율 전체</option>
@@ -56,6 +64,7 @@
         <button data-t="lowest">새 최저가만</button>
         <button data-t="base" class="ps-only">본편·에디션만</button>
         <button data-t="noplus" class="ps-only">PS Plus 전용 빼기</button>
+        <button data-t="vr" class="ps-only">VR 대응</button>
       </div>
     </div>
     <p class="count" id="count"></p>

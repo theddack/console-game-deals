@@ -4,9 +4,28 @@ const $ = (s) => document.querySelector(s);
 const won = (n) => (typeof n === "number" ? n.toLocaleString("ko-KR") + "원" : "");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const PAGE = 60;
+const DAY = 86400000;
 
 const state = { tab: "hot", kind: "all", store: "nintendo", shown: PAGE, data: { hot: null, games: null, news: null } };
-const toggles = { big: true, lowest: false, base: false, noplus: false };
+const toggles = { big: true, lowest: false, base: false, noplus: false, vr: false };
+
+// 발매 시기 고르기. 닌텐도는 발매일이 있고, PS 는 스토어 표시(방금 출시·출시 예정)만 있다
+const AGES = {
+  nintendo: [
+    ["all", "발매 시기 전체", () => true],
+    ["y1", "최근 1년 발매", (d) => d.released && ageDays(d) >= 0 && ageDays(d) <= 365],
+    ["y3", "1~3년 전 발매", (d) => d.released && ageDays(d) > 365 && ageDays(d) <= 365 * 3],
+    ["old", "3년 넘은 게임", (d) => d.released && ageDays(d) > 365 * 3],
+    ["soon", "발매 예정", (d) => d.released && ageDays(d) < 0],
+  ],
+  playstation: [
+    ["all", "발매 시기 전체", () => true],
+    ["new", "방금 출시 (30일)", (d) => d.fresh === "new"],
+    ["soon", "출시 예정·예약", (d) => d.fresh === "upcoming"],
+  ],
+};
+
+function ageDays(d) { return Math.floor((Date.now() - new Date(d.released + "T00:00:00+09:00")) / DAY); }
 
 function ago(iso) {
   if (!iso) return "";
@@ -18,9 +37,13 @@ function ago(iso) {
 function endText(iso) {
   if (!iso) return "";
   const d = new Date(iso);
-  const days = Math.ceil((d - Date.now()) / 86400000);
+  const days = Math.ceil((d - Date.now()) / DAY);
   const md = `${d.getMonth() + 1}/${d.getDate()}`;
   return days <= 1 ? `오늘·내일 마감 (${md})` : `~${md} (${days}일 남음)`;
+}
+function relText(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${y}.${m}.${d} 발매`;
 }
 
 async function load(name) {
@@ -52,34 +75,78 @@ function renderHot() {
     </a></li>`).join("") : `<li class="empty">최근 7일 동안 모인 핫딜이 없습니다</li>`;
 }
 
+// 스토어가 바뀔 때 기종·장르·발매 시기 목록을 그 스토어 데이터로 다시 채운다
+function fillSelects() {
+  const all = state.data.games?.[state.store] || [];
+  const count = (key) => {
+    const c = new Map();
+    all.forEach((d) => (d[key] || []).forEach((v) => c.set(v, (c.get(v) || 0) + 1)));
+    return [...c.entries()].sort((a, b) => b[1] - a[1]);
+  };
+  const plats = count("platforms").sort((a, b) => b[0].localeCompare(a[0], "en", { numeric: true }));
+  $("#platform").innerHTML = `<option value="">기종 전체</option>`
+    + plats.map(([v, n]) => `<option value="${esc(v)}">${esc(v)} (${n.toLocaleString()})</option>`).join("");
+  $("#genre").innerHTML = `<option value="">장르 전체</option>`
+    + count("genres").map(([v, n]) => `<option value="${esc(v)}">${esc(v)} (${n.toLocaleString()})</option>`).join("");
+  $("#age").innerHTML = AGES[state.store].map(([k, label]) => `<option value="${k}">${label}</option>`).join("");
+}
+
 function gameItems() {
   const all = state.data.games?.[state.store] || [];
   const q = $("#q").value.trim().toLowerCase().replace(/\s+/g, "");
   const min = +$("#mindisc").value;
+  const plat = $("#platform").value;
+  const genre = $("#genre").value;
+  const age = (AGES[state.store].find(([k]) => k === $("#age").value) || AGES[state.store][0])[2];
   const ps = state.store === "playstation";
-  let items = all.filter((d) =>
+  const items = all.filter((d) =>
     d.discount >= min
+    && (!plat || (d.platforms || []).includes(plat))
+    && (!genre || (d.genres || []).includes(genre))
+    && age(d)
     && (!toggles.big || d.regular >= 20000)
     && (!toggles.lowest || d.new_low || d.at_low)
     && (!ps || !toggles.base || ["게임", "에디션", "번들"].includes(d.type))
     && (!ps || !toggles.noplus || !d.plus)
+    && (!ps || !toggles.vr || (d.vr || []).length)
     && (!q || d.name.toLowerCase().replace(/\s+/g, "").includes(q)));
-  const sort = $("#sort").value;
+  const relKey = (d) => (ps ? d.rel ?? 1e9 : d.released ? -new Date(d.released).getTime() / DAY : 1e9);
   const key = {
     save: (d) => -(d.regular - d.price),
+    pop: (d) => d.pop ?? 1e9,
     disc: (d) => -d.discount * 1e7 - d.regular,
     low: (d) => d.price,
+    new: relKey,
+    old: (d) => { const k = relKey(d); return k >= 1e9 ? 1e9 : -k; },
     end: (d) => (d.ends ? new Date(d.ends).getTime() : 9e15),
-  }[sort];
+  }[$("#sort").value] || ((d) => 0);
   items.sort((a, b) => key(a) - key(b));
   return items;
+}
+
+function badges(d, ps) {
+  const out = [`<span class="badge ${ps ? "ps" : "ns"}">${esc((d.platforms || []).join("·") || (ps ? "PS" : "Switch"))}</span>`];
+  if (d.type && d.type !== "게임") out.push(`<span>${esc(d.type)}</span>`);
+  if (d.fresh === "new") out.push(`<span class="badge new">방금 출시</span>`);
+  if (d.fresh === "upcoming") out.push(`<span class="badge new">출시 예정</span>`);
+  if (d.wish) out.push(`<span class="badge wish">위시리스트</span>`);
+  if (d.new_low) out.push(`<span class="badge low">새 최저가 (이전 ${won(d.prev_low)})</span>`);
+  else if (d.at_low) out.push(`<span class="badge low">최저가와 같음</span>`);
+  if (d.pop && d.pop <= 100) out.push(`<span class="badge pop">인기 ${d.pop}위</span>`);
+  if ((d.vr || []).length) out.push(`<span>${esc(d.vr.join("·"))}</span>`);
+  if (d.plus) out.push(`<span>PS Plus 전용</span>`);
+  if ((d.genres || []).length) out.push(`<span>${esc(d.genres.slice(0, 2).join("·"))}</span>`);
+  if (d.released) out.push(`<span>${relText(d.released)}</span>`);
+  if (d.ends) out.push(`<span>${endText(d.ends)}</span>`);
+  return out.join("");
 }
 
 function renderGames() {
   const ps = state.store === "playstation";
   document.querySelectorAll(".ps-only").forEach((b) => (b.hidden = !ps));
-  $("#sort option[value=end]").hidden = ps;
-  if (ps && $("#sort").value === "end") $("#sort").value = "save";
+  document.querySelectorAll(".ns-only").forEach((b) => (b.hidden = ps));
+  const sort = $("#sort");
+  if (sort.selectedOptions[0]?.hidden) sort.value = "save";
   const failed = state.data.games?.errors?.includes(ps ? "PlayStation" : "닌텐도");
   const items = gameItems();
   $("#count").textContent = failed
@@ -90,14 +157,7 @@ function renderGames() {
       <div class="thumb">${d.img ? `<img src="${esc(d.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}</div>
       <div>
         <div class="t">${esc(d.name)}</div>
-        <div class="sub">
-          <span class="badge ${ps ? "ps" : "ns"}">${esc((d.platforms || []).join("·") || (ps ? "PS" : "Switch"))}</span>
-          ${d.type && d.type !== "게임" ? `<span>${esc(d.type)}</span>` : ""}
-          ${d.wish ? `<span class="badge wish">위시리스트</span>` : ""}
-          ${d.new_low ? `<span class="badge low">새 최저가 (이전 ${won(d.prev_low)})</span>` : d.at_low ? `<span class="badge low">최저가와 같음</span>` : ""}
-          ${d.plus ? `<span>PS Plus 전용</span>` : ""}
-          ${d.ends ? `<span>${endText(d.ends)}</span>` : ""}
-        </div>
+        <div class="sub">${badges(d, ps)}</div>
       </div>
       <div class="price"><span class="pct">-${d.discount}%</span><span class="now">${won(d.price)}</span>
         <span class="was">${won(d.regular)}</span></div>
@@ -121,7 +181,10 @@ function show(tab) {
   $("#tab-news").hidden = tab !== "news";
   $("#tab-games").hidden = !(tab === "nintendo" || tab === "playstation");
   if (tab === "nintendo" || tab === "playstation") {
-    state.store = tab;
+    if (state.store !== tab || !$("#age").options.length) {
+      state.store = tab;
+      fillSelects();
+    }
     state.shown = PAGE;
     renderGames();
   }
@@ -144,7 +207,7 @@ function bind() {
   }));
   let timer;
   $("#q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => { state.shown = PAGE; renderGames(); }, 150); });
-  ["#sort", "#mindisc"].forEach((s) => $(s).addEventListener("change", () => { state.shown = PAGE; renderGames(); }));
+  ["#sort", "#mindisc", "#platform", "#genre", "#age"].forEach((s) => $(s).addEventListener("change", () => { state.shown = PAGE; renderGames(); }));
   $("#more").addEventListener("click", () => { state.shown += PAGE; renderGames(); });
   window.addEventListener("hashchange", () => {
     const t = location.hash.slice(1);

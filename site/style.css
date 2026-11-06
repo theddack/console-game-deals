@@ -55,6 +55,10 @@ input[type="search"], select {
 .badge.ps { background: transparent; color: var(--ps); border: 1px solid currentColor; }
 .badge.low { background: transparent; color: var(--good); border: 1px solid currentColor; }
 .badge.wish { background: transparent; color: var(--warn); border: 1px solid currentColor; }
+.badge.new { background: transparent; color: var(--accent); border: 1px solid currentColor; }
+.badge.pop { background: transparent; color: var(--sale); border: 1px solid currentColor; }
+.row select { min-width: 0; }
+option[hidden] { display: none; }
 
 .games a.item { display: grid; grid-template-columns: 64px 1fr auto; gap: 4px 12px; align-items: center; }
 .thumb { width: 64px; height: 64px; border-radius: 8px; overflow: hidden; background: var(--line); }
