@@ -9,7 +9,7 @@ PS5·닌텐도 스위치 기기 핫딜과 한국 스토어 게임 할인을 하�
 
 | 구분 | 소스 | 가져오는 것 |
 |---|---|---|
-| 핫딜 | 루리웹 핫딜 RSS, 뽐뿌 RSS, 아카라이브 핫딜 목록 | PS·닌텐도 관련 글의 제목·가격·원문 링크 (본문·이미지 없음) |
+| 핫딜 | 루리웹 핫딜 RSS, 뽐뿌 RSS (아카라이브는 꺼 둠: Actions 접속 차단 + 콘솔 글이 드묾) | PS·닌텐도 관련 글의 제목·가격·원문 링크 (본문·이미지 없음) |
 | 게임 | 닌텐도 게임 목록(`data/ns_catalog.json`) + 닌텐도 가격 조회 | 이름·표지·할인가·정가·종료일 |
 | 게임 | PlayStation Store 한국 '모든 할인' | 이름·표지·할인가·정가·기종·PS Plus 전용 여부 |
 | 소식 | PlayStation 블로그 한국어판 피드 | 세일·할인 관련 글 제목·링크 |
@@ -36,6 +36,7 @@ git add data/ns_catalog.json && git commit -m "닌텐도 게임 목록 갱신" &
 - `big_discount_min_regular`: '큰 할인' 알림은 정가가 이 금액 이상인 게임만 (기본 20000)
 - `big_discount_notify_max`: '큰 할인'을 한 번에 몇 개까지 보여 줄지 (기본 10)
 - `device_price_limits`: 기기 핫딜 가격 상한. 예: `{"스위치2": 450000}` → 제목에 '스위치2'가 있으면 45만원 이하일 때만 알림
+- `disabled_hotdeal_sources`: 수집하지 않을 핫딜 게시판 (기본 `["아카라이브"]`)
 - `console_keywords` · `device_keywords` · `game_title_keywords`: 핫딜 글을 고르는 말
 
 ## 텔레그램 연결
