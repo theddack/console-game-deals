@@ -1,5 +1,7 @@
 """핫딜 게시판(루리웹 게임 핫딜 · 뽐뿌 · 아카라이브)에서 PS·닌텐도 관련 글만 모은다.
 
+config.json 의 disabled_hotdeal_sources 에 있는 게시판은 건너뛴다 (아카라이브는 기본으로 꺼 둠).
+
 제목·가격·원문 링크만 가져오고 본문·이미지는 가져오지 않는다.
 결과는 data/hotdeals.json 에 최근 KEEP_DAYS 일치만 남긴다 (처음 본 시각 first_seen 유지).
 """
@@ -107,6 +109,8 @@ def collect() -> dict:
         ("뽐뿌", lambda: _rss(PPOMPPU, "뽐뿌", False, cfg)),
         ("아카라이브", lambda: parse_arca(fetch(ARCA).decode("utf-8", "replace"), cfg)),
     ]:
+        if name in cfg.get("disabled_hotdeal_sources", []):
+            continue
         try:
             items = job()
             print(f"핫딜 {name}: {len(items)}건")
