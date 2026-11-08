@@ -74,6 +74,11 @@ jobs:
           mkdir -p _site
           cp site/* _site/
           cp data/hotdeals.json data/games.json data/news.json _site/ 2>/dev/null || true
+          # 스크립트·스타일 주소에 코드 버전을 붙인다. Pages 캐시(10분) 때문에 새 index.html 과 예전 app.js 가
+          # 섞여 불러와지면 목록이 안 그려진 적이 있다 (2026-11-08)
+          v=$(git log -1 --format=%h -- site/)
+          sed -i "s#\"style.css\"#\"style.css?v=$v\"#; s#\"app.js\"#\"app.js?v=$v\"#" _site/index.html
+          grep -o 'app.js?v=[^"]*' _site/index.html
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
