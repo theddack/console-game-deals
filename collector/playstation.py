@@ -58,8 +58,8 @@ def pick_image(media: list | None) -> str | None:
     for role in IMG_ROLES:
         for m in imgs:
             if m.get("role") == role:
-                return m["url"] + "?w=160"
-    return imgs[0]["url"] + "?w=160" if imgs else None
+                return m["url"] + "?w=440"
+    return imgs[0]["url"] + "?w=440" if imgs else None
 
 
 def parse_product(p: dict) -> dict | None:
