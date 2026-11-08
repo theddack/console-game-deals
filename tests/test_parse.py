@@ -132,7 +132,7 @@ class PlayStation(unittest.TestCase):
 
     def test_image(self):
         media = [{"role": "SCREENSHOT", "type": "IMAGE", "url": "s"}, {"role": "GAMEHUB_COVER_ART", "type": "IMAGE", "url": "c"}]
-        self.assertEqual(pick_image(media), "c?w=160")
+        self.assertEqual(pick_image(media), "c?w=440")
         self.assertIsNone(pick_image([]))
 
     def test_clean_name(self):

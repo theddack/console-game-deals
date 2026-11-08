@@ -3,50 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>콘솔 할인 모아보기</title>
-<meta name="description" content="PS5·닌텐도 스위치 기기 핫딜과 한국 스토어 게임 할인을 하루 두 번 모아 둔 페이지">
+<title>Game Deals</title>
+<meta name="description" content="PS5·닌텐도 스위치 게임 할인과 기기 핫딜을 하루 두 번 모아 보는 페이지">
+<meta name="theme-color" content="#0b0e14">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="wrap">
-    <h1>🎮 콘솔 할인 모아보기</h1>
-    <p class="meta" id="meta">불러오는 중…</p>
-    <nav class="tabs" role="tablist">
-      <button role="tab" data-tab="hot" aria-selected="true">핫딜</button>
-      <button role="tab" data-tab="nintendo">닌텐도</button>
-      <button role="tab" data-tab="playstation">PlayStation</button>
-      <button role="tab" data-tab="news">소식</button>
-    </nav>
-  </div>
-</header>
+<div class="shell">
+  <header class="top">
+    <div class="brand">
+      <svg class="pad" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 6h9a5.5 5.5 0 0 1 5.4 6.6l-.9 4.4a2.6 2.6 0 0 1-4.6 1.1L15 16h-6l-1.4 2.1a2.6 2.6 0 0 1-4.6-1.1l-.9-4.4A5.5 5.5 0 0 1 7.5 6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 9.5v4M6 11.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15.5" cy="10.5" r="1.1" fill="currentColor"/><circle cx="17.5" cy="12.8" r="1.1" fill="currentColor"/></svg>
+      <h1>GAME DEALS</h1>
+    </div>
+    <div class="top-meta">
+      <span>콘솔 할인 모아보기</span>
+      <span id="meta" class="updated">불러오는 중…</span>
+    </div>
+  </header>
 
-<main class="wrap">
-  <section id="tab-hot" class="panel">
-    <div class="controls">
+  <nav class="pills" role="tablist">
+    <button role="tab" data-store="all" aria-selected="true">전체</button>
+    <button role="tab" data-store="playstation">PlayStation</button>
+    <button role="tab" data-store="nintendo">Nintendo</button>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow">TODAY'S DEALS</p>
+    <h2>오늘 놓치면 아쉬운 할인</h2>
+    <p class="lead">인기 할인과 새로운 최저가를 한눈에</p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <h3>인기 할인 게임</h3>
+      <span class="hint" id="pick-hint"></span>
+    </div>
+    <ul class="grid" id="picks"></ul>
+  </section>
+
+  <section class="block" id="lows-block" hidden>
+    <div class="block-head">
+      <h3>새 최저가</h3>
+      <span class="hint">수집을 시작한 뒤 가장 싼 가격</span>
+    </div>
+    <ul class="grid" id="lows"></ul>
+  </section>
+
+  <section class="block" id="hot-block">
+    <div class="block-head">
+      <h3>핫딜</h3>
       <div class="chips" data-group="kind">
         <button data-v="all" class="on">전체</button>
-        <button data-v="device">기기·주변기기</button>
+        <button data-v="device">기기</button>
         <button data-v="game">게임</button>
       </div>
     </div>
-    <ul class="list" id="hot-list"></ul>
+    <ul class="rows" id="hot-list"></ul>
+    <button class="more ghost" id="hot-more" hidden>핫딜 더 보기</button>
   </section>
 
-  <section id="tab-games" class="panel" hidden>
-    <div class="controls">
+  <section class="block" id="browse">
+    <div class="block-head">
+      <h3>모든 할인</h3>
+      <span class="hint" id="count"></span>
+    </div>
+    <div class="filters">
       <input type="search" id="q" placeholder="게임 이름 검색" autocomplete="off">
-      <div class="row">
+      <div class="selects">
         <select id="platform" aria-label="기종"></select>
         <select id="genre" aria-label="장르"></select>
         <select id="age" aria-label="발매 시기"></select>
-      </div>
-      <div class="row">
         <select id="sort" aria-label="정렬">
           <option value="save">아끼는 금액 순</option>
-          <option value="pop" class="ps-only">인기 순 (최근 30일 판매)</option>
-          <option value="disc">할인율 순</option>
+          <option value="pop" class="ps-only">인기 순</option>
+          <option value="disc">할인율 높은 순</option>
           <option value="low">가격 낮은 순</option>
           <option value="new">출시일 최신 순</option>
           <option value="old">출시일 오래된 순</option>
@@ -67,20 +99,20 @@
         <button data-t="vr" class="ps-only">VR 대응</button>
       </div>
     </div>
-    <p class="count" id="count"></p>
-    <ul class="list games" id="game-list"></ul>
+    <ul class="grid" id="game-list"></ul>
     <button class="more" id="more" hidden>더 보기</button>
   </section>
 
-  <section id="tab-news" class="panel" hidden>
-    <ul class="list" id="news-list"></ul>
+  <section class="block" id="news-block" hidden>
+    <div class="block-head"><h3>소식</h3></div>
+    <ul class="rows" id="news-list"></ul>
   </section>
-</main>
 
-<footer class="wrap foot">
-  핫딜은 루리웹·뽐뿌·아카라이브 게시글 제목과 링크만, 게임 가격은 닌텐도·PlayStation 한국 스토어 기준입니다.
-  가격은 바뀔 수 있으니 구매 전 원문에서 확인하세요. 최저가는 이 페이지가 수집을 시작한 뒤의 기록입니다.
-</footer>
+  <footer class="foot">
+    핫딜은 루리웹·뽐뿌 게시글 제목과 링크만, 게임 가격은 닌텐도·PlayStation 한국 스토어 기준입니다.
+    가격은 바뀔 수 있으니 구매 전 원문에서 확인하세요. 최저가는 이 페이지가 수집을 시작한 뒤의 기록입니다.
+  </footer>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
