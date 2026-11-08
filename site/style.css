@@ -67,6 +67,22 @@ button { font: inherit; color: inherit; }
 .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 720px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 980px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* 옆으로 넘기는 줄 (TOP 10 · 곧 끝나는 할인) — 아래 전체 목록과 모양을 달리한다 */
+.strip {
+  list-style: none; margin: 0; padding: 0 0 6px; display: grid; gap: 12px;
+  grid-auto-flow: column; grid-auto-columns: 44%; overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: thin; scrollbar-color: var(--line) transparent;
+}
+.strip > li { scroll-snap-align: start; }
+@media (min-width: 720px) { .strip { grid-auto-columns: 210px; } }
+.strip .name { font-size: 14px; }
+.strip .now { font-size: 17px; }
+.strip .pct { font-size: 15px; }
+.rank {
+  position: absolute; left: 8px; bottom: 6px; z-index: 1; font-size: 34px; font-weight: 900; line-height: 1;
+  color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,.7);
+}
+.browse { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 8px; }
 .card { display: flex; flex-direction: column; height: 100%; background: var(--card); border-radius: var(--radius); overflow: hidden; transition: background .15s, transform .15s; }
 .card:hover { background: var(--card-hi); transform: translateY(-2px); }
 .art { position: relative; aspect-ratio: 1 / 1; background: #fff; overflow: hidden; }

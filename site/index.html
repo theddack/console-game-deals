@@ -35,12 +35,20 @@
     <div class="stats" id="stats"></div>
   </section>
 
-  <section class="block">
+  <section class="block" id="ps-top-block">
     <div class="block-head">
-      <h3>인기 할인 게임</h3>
-      <span class="hint" id="pick-hint"></span>
+      <h3>PlayStation 인기 TOP 10</h3>
+      <span class="hint">최근 30일 판매 순위 · 옆으로 넘겨 보기</span>
     </div>
-    <ul class="grid" id="picks"></ul>
+    <ul class="strip" id="ps-top"></ul>
+  </section>
+
+  <section class="block" id="ns-end-block">
+    <div class="block-head">
+      <h3>곧 끝나는 닌텐도 큰 할인</h3>
+      <span class="hint">7일 안에 끝나는 50% 이상 할인 · 정가 3만원 이상</span>
+    </div>
+    <ul class="strip" id="ns-end"></ul>
   </section>
 
   <section class="block" id="lows-block" hidden>
@@ -48,7 +56,7 @@
       <h3>새 최저가</h3>
       <span class="hint">수집을 시작한 뒤 가장 싼 가격</span>
     </div>
-    <ul class="grid" id="lows"></ul>
+    <ul class="strip" id="lows"></ul>
   </section>
 
   <section class="block" id="hot-block">
@@ -64,9 +72,9 @@
     <button class="more ghost" id="hot-more" hidden>핫딜 더 보기</button>
   </section>
 
-  <section class="block" id="browse">
+  <section class="block browse" id="browse">
     <div class="block-head">
-      <h3>모든 할인</h3>
+      <h3>할인 중인 모든 게임</h3>
       <span class="hint" id="count"></span>
     </div>
     <div class="filters">
