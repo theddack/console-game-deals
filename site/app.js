@@ -61,7 +61,7 @@ function games(store = state.store) {
 /* ---------- 같은 게임의 기종별 버전 합치기 ---------- */
 // PS 는 PS4판·PS5판이, 닌텐도는 스위치판·스위치2판이 따로 올라온다. 이름·종류가 같으면 카드 하나로 합치고
 // 가장 싼 버전을 대표로 보여 준다 (기종 필터를 고르면 그 기종 버전만 남긴 뒤 합친다).
-// '전체'에서는 PS판과 스위치판도 한 카드로 합쳐 기종별 가격을 나란히 보여 준다
+// 스토어가 다르면(PS판·스위치판) 합치지 않는다
 const norm = (s) => s.toLowerCase().replace(/[\s:：\-–—'’!?.,()[\]™®]/g, "");
 const union = (vs, f) => [...new Set(vs.flatMap((v) => v[f] || []))];
 const minOf = (vs, f) => { const xs = vs.map((v) => v[f]).filter((x) => x != null); return xs.length ? Math.min(...xs) : undefined; };
@@ -69,7 +69,7 @@ const minOf = (vs, f) => { const xs = vs.map((v) => v[f]).filter((x) => x != nul
 function group(items) {
   const m = new Map();
   for (const d of items) {
-    const k = `${norm(d.name)}|${d.plus ? 1 : 0}`;  // 스토어가 달라도 같은 게임이면 합친다 ('전체'에서 가격 비교)
+    const k = `${d.store}|${norm(d.name)}|${d.plus ? 1 : 0}`;  // PS판과 스위치판은 따로 둔다
     (m.get(k) || m.set(k, []).get(k)).push(d);
   }
   return [...m.values()].map((vs) => {
