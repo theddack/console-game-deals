@@ -1,11 +1,16 @@
 name: collect
 
-# 하루 두 번 수집 → 텔레그램 브리핑 → 데이터 커밋 → GitHub Pages 배포.
-# 예약 시각: KST 09:23 · 19:23 (UTC 0:23 · 10:23). GitHub Actions 예약은 몇십 분~몇 시간 늦거나 가끔 빠질 수 있다.
+# 하루 두 번 게임 할인 수집 → 텔레그램 브리핑 → 데이터 커밋 → GitHub Pages 배포. (핫딜은 hotdeals.yml 이 30분마다)
+#
+# 언제 도는가
+# - 주 경로: Google Apps Script 가 KST 09·19시 10분 전후에 workflow_dispatch 로 건다 (scripts/apps_script_trigger.gs).
+#   GitHub Actions 예약은 6시간쯤 늦게 돌았다 (2026-11-05~09: 09:23 예약이 15:46, 19:23 예약이 01:43).
+# - 비상용 예약: KST 10:40 · 20:40 (UTC 1:40 · 11:40). 늦게 돌아도 최근 8시간 안에 수집했으면 건너뛴다(gate) —
+#   Apps Script 가 제때 돌았으면 아무것도 하지 않고, Apps Script 가 멈췄을 때만 대신 수집한다.
 # 손으로 돌릴 때(workflow_dispatch) dry_run 을 켜면 텔레그램은 보내지 않고 로그에만 찍는다.
 on:
   schedule:
-    - cron: "23 0,10 * * *"
+    - cron: "40 1,11 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -26,7 +31,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 비상용 예약 실행만: 마지막 수집(data/collected_at.txt 커밋)이 8시간 안이면 건너뛴다
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "skip=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          last=$(gh api "repos/${{ github.repository }}/commits?path=data/collected_at.txt&per_page=1" --jq '.[0].commit.committer.date' 2>/dev/null || true)
+          if [ -z "$last" ]; then echo "skip=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          age=$(( $(date +%s) - $(date -d "$last" +%s) ))
+          echo "마지막 수집 $last ($((age / 3600))시간 전)"
+          if [ "$age" -lt 28800 ]; then
+            echo "최근 8시간 안에 수집했으므로 건너뜀"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
   collect:
+    needs: gate
+    if: needs.gate.outputs.skip != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

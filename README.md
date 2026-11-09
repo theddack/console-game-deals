@@ -3,7 +3,8 @@
 PS5·닌텐도 스위치 기기 핫딜과 한국 스토어 게임 할인을 하루 두 번 모아서, 텔레그램으로 요약을 받고 페이지로 봅니다.
 
 - 페이지: https://theddack.github.io/console-game-deals/
-- 수집: GitHub Actions, KST 09:23 · 19:23 (Actions 예약이라 늦거나 가끔 빠질 수 있음)
+- 게임 할인 수집 + 텔레그램 브리핑: KST 09·19시 (Google Apps Script 가 실행을 건다, 아래 '수집 시각' 참고)
+- 핫딜: 30분마다 (`.github/workflows/hotdeals.yml`, 페이지는 저장소 파일을 바로 읽음)
 
 ## 소스
 
@@ -15,6 +16,14 @@ PS5·닌텐도 스위치 기기 핫딜과 한국 스토어 게임 할인을 하�
 | 소식 | PlayStation 블로그 한국어판 피드 | 세일·할인 관련 글 제목·링크 |
 
 PlayStation Store와 닌텐도 가격 조회는 공식 공개 API가 아니어서 스토어가 바뀌면 깨질 수 있습니다. 한 곳이 실패해도 나머지는 계속 수집하고, 페이지 위쪽과 텔레그램에 실패한 곳을 표시합니다.
+
+## 수집 시각 — Google Apps Script
+
+GitHub Actions 예약은 6시간쯤 늦게 돌았습니다 (09:23 예약이 15:46에). 그래서 항공권 프로젝트처럼
+Google Apps Script 가 KST 09·19시 10분 전후에 수집을 겁니다. 설정 방법은 `scripts/apps_script_trigger.gs` 맨 위에 있습니다.
+
+Actions 예약(KST 10:40 · 20:40)은 비상용으로 남겨 둡니다. 최근 8시간 안에 수집했으면 아무것도 하지 않고,
+Apps Script 가 멈췄을 때만 대신 수집합니다. 핫딜은 RSS 에 최근 글만 담기므로(뽐뿌는 1시간 남짓) 30분마다 따로 받습니다.
 
 ## 페이지에서 고르기
 
