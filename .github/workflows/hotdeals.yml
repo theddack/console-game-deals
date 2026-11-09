@@ -1,0 +1,51 @@
+name: hotdeals
+
+# 핫딜 게시판(루리웹·뽐뿌 RSS)만 자주 받는다. 뽐뿌 RSS 는 최신 15개 = 1시간 남짓 분량이라 하루 두 번 수집으로는
+# 대부분 놓쳤다 (2026-11-09 점검). 요청 2번짜리 가벼운 작업이고, 새 글이 있을 때만 data/hotdeals.json 을 커밋한다.
+# 페이지는 저장소의 이 파일을 바로 읽어서(raw.githubusercontent.com) 배포를 기다리지 않는다.
+# 텔레그램 브리핑은 그대로 collect 작업이 하루 두 번 보낸다 (그 사이 쌓인 핫딜을 모아서).
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hotdeals
+  cancel-in-progress: false
+
+jobs:
+  hotdeals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect hotdeals
+        run: python -m collector.hotdeals
+
+      # collect 작업도 같은 브랜치에 data 커밋을 올린다. 파일이 겹치지 않으니(이 작업은 hotdeals.json 만)
+      # 원격을 다시 받아(rebase) 몇 번 더 시도한다
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hotdeals.json
+          if git diff --cached --quiet; then
+            echo "새 핫딜 없음"
+            exit 0
+          fi
+          git commit -m "data: 핫딜 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
+          for wait in 5 10 20 40; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $wait
+          done
+          exit 1

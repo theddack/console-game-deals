@@ -1,7 +1,7 @@
-"""한 번에 모두 수집: 핫딜 · 닌텐도 · PlayStation · PS 블로그 소식.
+"""게임 할인 수집: 닌텐도 · PlayStation · PS 블로그 소식 (핫딜은 collector/hotdeals.py 가 30분마다 따로).
 
 파일
-- data/hotdeals.json  핫딜 최근 7일 (저장소에 커밋)
+- data/hotdeals.json  핫딜 최근 7일 (hotdeals 작업이 커밋)
 - data/news.json      PS 블로그 세일 소식 (커밋)
 - data/lowest.json    게임별 수집 기준 최저가 기록 (커밋, 한 줄에 한 게임)
 - data/games.json     지금 할인 중인 게임 전체 (매번 새로 만드는 큰 파일이라 커밋하지 않고 페이지에만 올린다)
@@ -58,12 +58,13 @@ def run() -> int:
     stamp = now.isoformat(timespec="minutes")
     failed = []
 
-    try:
-        hd = hotdeals.collect()
-        failed += [f"핫딜 {e}" for e in hd["errors"]]
-    except Exception as e:
-        failed.append("핫딜")
-        print(f"::warning::핫딜 수집 실패: {e}")
+    # 핫딜은 따로 30분마다 받는다 (.github/workflows/hotdeals.yml). 여기서도 받으면 두 작업이 같은 파일을
+    # 고쳐 커밋이 부딪힌다. 로컬에서 한꺼번에 보려면 --with-hotdeals
+    if "--with-hotdeals" in sys.argv:
+        try:
+            hotdeals.collect()
+        except Exception as e:
+            print(f"::warning::핫딜 수집 실패: {e}")
 
     try:
         save_json(NEWS, {"updated": stamp, "items": news.collect()})
@@ -88,11 +89,13 @@ def run() -> int:
     hist = {k: v for k, v in hist.items() if (today - date.fromisoformat(v[3])).days <= FORGET_DAYS}
     save_json(LOWEST, hist, one_per_line=True)
     save_json(GAMES, games, compact=True)
+    # 비상용 예약이 '최근에 수집했는지' 보는 표시 (.github/workflows/collect.yml 의 gate)
+    (DATA / "collected_at.txt").write_text(stamp + chr(10), encoding="utf-8")
 
     if failed:
         print(f"::warning::실패한 곳: {', '.join(failed)}")
     # 모든 곳이 실패했을 때만 실패로 끝낸다 (일부 실패는 경고로 두고 배포는 계속)
-    return 1 if len(failed) >= 5 else 0
+    return 1 if len(failed) >= 3 else 0  # PS 블로그 · 닌텐도 · PlayStation 이 모두 실패
 
 
 if __name__ == "__main__":
