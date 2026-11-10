@@ -1,7 +1,27 @@
 {
- "updated": "2026-11-10T13:44+09:00",
+ "updated": "2026-11-10T22:14+09:00",
  "errors": [],
  "items": [
+  {
+   "id": "루리웹:108899",
+   "source": "루리웹",
+   "title": "[하이마트] PS5 인왕3 (39,800/0)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108899",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-10T15:37+09:00",
+   "first_seen": "2026-11-10T22:14+09:00"
+  },
+  {
+   "id": "루리웹:108898",
+   "source": "루리웹",
+   "title": "[플레이샵] PS5 랜덤박스/30,000/2,500",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108898",
+   "price": 30000,
+   "kind": "game",
+   "posted": "2026-11-10T14:47+09:00",
+   "first_seen": "2026-11-10T22:14+09:00"
+  },
   {
    "id": "루리웹:108897",
    "source": "루리웹",
