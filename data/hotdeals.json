@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T16:41+09:00",
+ "updated": "2026-11-12T00:50+09:00",
  "errors": [],
  "items": [
   {
@@ -331,66 +331,6 @@
    "kind": "game",
    "posted": "2026-11-05T01:02+09:00",
    "first_seen": "2026-11-05T08:18+09:00"
-  },
-  {
-   "id": "루리웹:108699",
-   "source": "루리웹",
-   "title": "[네이버] 젤다의 전설 시간의 오카리나 양면슬리브판 /88,000원(유배)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108699",
-   "price": 88000,
-   "kind": "game",
-   "posted": "2026-11-04T22:09+09:00",
-   "first_seen": "2026-11-04T23:37+09:00"
-  },
-  {
-   "id": "루리웹:108696",
-   "source": "루리웹",
-   "title": "하이마트)드래곤즈 도그마2 ps5 19,800",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108696",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-04T21:25+09:00",
-   "first_seen": "2026-11-04T23:21+09:00"
-  },
-  {
-   "id": "루리웹:108695",
-   "source": "루리웹",
-   "title": "[SSG] 젤다의 전설 시간의 오카리나 키링포켓백 특전 / 85000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108695",
-   "price": 85000,
-   "kind": "game",
-   "posted": "2026-11-04T21:06+09:00",
-   "first_seen": "2026-11-04T23:37+09:00"
-  },
-  {
-   "id": "루리웹:108679",
-   "source": "루리웹",
-   "title": "[크림]PS5 고스트 오브 요테이 컴플리트 에디션 59,400원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108679",
-   "price": 59400,
-   "kind": "game",
-   "posted": "2026-11-04T12:36+09:00",
-   "first_seen": "2026-11-04T23:21+09:00"
-  },
-  {
-   "id": "루리웹:108678",
-   "source": "루리웹",
-   "title": "[하이마트] 스위치 드래곤퀘스트7 5.2만원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108678",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-04T12:27+09:00",
-   "first_seen": "2026-11-04T23:21+09:00"
-  },
-  {
-   "id": "루리웹:108676",
-   "source": "루리웹",
-   "title": "[PSStore] 파이널 판타지 7 리버스 9420원 (85% 할인)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108676",
-   "price": 9420,
-   "kind": "game",
-   "posted": "2026-11-04T12:06+09:00",
-   "first_seen": "2026-11-04T23:37+09:00"
   }
  ]
 }
