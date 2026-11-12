@@ -1,7 +1,37 @@
 {
- "updated": "2026-11-12T07:27+09:00",
+ "updated": "2026-11-12T12:16+09:00",
  "errors": [],
  "items": [
+  {
+   "id": "루리웹:108965",
+   "source": "루리웹",
+   "title": "[닌텐도스토어]시간의 오카리나 젤다의 전설 악기(추첨 판매 응모)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108965",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-12T09:30+09:00",
+   "first_seen": "2026-11-12T12:16+09:00"
+  },
+  {
+   "id": "루리웹:108964",
+   "source": "루리웹",
+   "title": "[하이마트 온라인] PS4 앤섬 / 990원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108964",
+   "price": 990,
+   "kind": "game",
+   "posted": "2026-11-12T09:19+09:00",
+   "first_seen": "2026-11-12T12:16+09:00"
+  },
+  {
+   "id": "루리웹:108963",
+   "source": "루리웹",
+   "title": "[네이버] 플레이스테이션 스토어 기프트카드 10만원권 8%할인 92000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/108963",
+   "price": 92000,
+   "kind": "game",
+   "posted": "2026-11-12T09:18+09:00",
+   "first_seen": "2026-11-12T12:16+09:00"
+  },
   {
    "id": "루리웹:108943",
    "source": "루리웹",
@@ -311,26 +341,6 @@
    "kind": "game",
    "posted": "2026-11-05T08:35+09:00",
    "first_seen": "2026-11-05T15:56+09:00"
-  },
-  {
-   "id": "루리웹:108706",
-   "source": "루리웹",
-   "title": "[플레이샵] PS5 크라임라이트 일반판 /37,000/2,500",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108706",
-   "price": 37000,
-   "kind": "device",
-   "posted": "2026-11-05T01:35+09:00",
-   "first_seen": "2026-11-05T08:18+09:00"
-  },
-  {
-   "id": "루리웹:108705",
-   "source": "루리웹",
-   "title": "[PSstore] 파이널 판타지 7 리메이크 / 8,964원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108705",
-   "price": 8964,
-   "kind": "game",
-   "posted": "2026-11-05T01:02+09:00",
-   "first_seen": "2026-11-05T08:18+09:00"
   }
  ]
 }
