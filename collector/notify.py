@@ -141,7 +141,7 @@ def build(state: dict, cfg: dict, now: datetime) -> tuple[list[str], dict]:
     # PS 블로그
     news = [d for d in load_json(DATA / "news.json", {}).get("items", []) if d["id"] not in sent_news]
     if news:
-        sections.append("<b>📰 PS 블로그 세일 소식</b>\n" + "\n".join(f"• {_a(d['title'], d['url'])}" for d in news[:5]))
+        sections.append("<b>📰 할인 소식</b>\n" + "\n".join(f"• [{_e(d['source'])}] {_a(d['title'], d['url'])}" for d in news[:5]))
     for d in news:
         sent_news[d["id"]] = today
 

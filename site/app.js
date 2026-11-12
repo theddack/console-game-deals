@@ -52,13 +52,13 @@ async function load(name) {
   } catch { return null; }
 }
 
-// 핫딜은 30분마다 저장소에 커밋되고 페이지 배포는 하루 두 번이라, 저장소 파일을 바로 읽는다 (5분 캐시).
+// 핫딜·소식은 30분마다 저장소에 커밋되고 페이지 배포는 하루 두 번이라, 저장소 파일을 바로 읽는다 (5분 캐시).
 // 못 읽으면 페이지에 같이 올라간 파일을 쓴다. 둘 중 더 최근 것을 고른다
 const RAW = "https://raw.githubusercontent.com/theddack/console-game-deals/main/data/";
-async function loadHot() {
+async function loadLive(name) {
   const [live, local] = await Promise.all([
-    fetch(`${RAW}hotdeals.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    load("hotdeals"),
+    fetch(`${RAW}${name}.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    load(name),
   ]);
   if (live && local) return (live.updated || "") >= (local.updated || "") ? live : local;
   return live || local;
@@ -330,7 +330,7 @@ function route() {
 
 (async function main() {
   bind();
-  const [hot, g, news] = await Promise.all([loadHot(), load("games"), load("news")]);
+  const [hot, g, news] = await Promise.all([loadLive("hotdeals"), load("games"), loadLive("news")]);
   state.data = { hot, games: g, news };
   renderMeta();
   renderHot();

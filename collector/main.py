@@ -1,8 +1,8 @@
-"""게임 할인 수집: 닌텐도 · PlayStation · PS 블로그 소식 (핫딜은 collector/hotdeals.py 가 30분마다 따로).
+"""게임 할인 수집: 닌텐도 · PlayStation (핫딜·소식은 collector/hotdeals.py · news.py 가 30분마다 따로).
 
 파일
 - data/hotdeals.json  핫딜 최근 7일 (hotdeals 작업이 커밋)
-- data/news.json      PS 블로그 세일 소식 (커밋)
+- data/news.json      할인 소식 PS 블로그·루리웹 콘솔 뉴스 (hotdeals 작업이 커밋)
 - data/lowest.json    게임별 수집 기준 최저가 기록 (커밋, 한 줄에 한 게임)
 - data/games.json     지금 할인 중인 게임 전체 (매번 새로 만드는 큰 파일이라 커밋하지 않고 페이지에만 올린다)
 
@@ -18,7 +18,6 @@ from .common import DATA, load_config, load_json, now_kst, save_json
 
 LOWEST = DATA / "lowest.json"
 GAMES = DATA / "games.json"
-NEWS = DATA / "news.json"
 AT_LOW_MIN_DAYS = 30   # 기록이 이 일수 이상 쌓였을 때만 '최저가와 같음'을 표시 (짧으면 의미 없음)
 FORGET_DAYS = 365      # 이만큼 안 보인 게임은 최저가 기록에서 지운다
 
@@ -58,19 +57,14 @@ def run() -> int:
     stamp = now.isoformat(timespec="minutes")
     failed = []
 
-    # 핫딜은 따로 30분마다 받는다 (.github/workflows/hotdeals.yml). 여기서도 받으면 두 작업이 같은 파일을
+    # 핫딜·소식은 따로 30분마다 받는다 (.github/workflows/hotdeals.yml). 여기서도 받으면 두 작업이 같은 파일을
     # 고쳐 커밋이 부딪힌다. 로컬에서 한꺼번에 보려면 --with-hotdeals
     if "--with-hotdeals" in sys.argv:
-        try:
-            hotdeals.collect()
-        except Exception as e:
-            print(f"::warning::핫딜 수집 실패: {e}")
-
-    try:
-        save_json(NEWS, {"updated": stamp, "items": news.collect()})
-    except Exception as e:
-        failed.append("PS 블로그")
-        print(f"::warning::PS 블로그 수집 실패: {e}")
+        for mod in (hotdeals, news):
+            try:
+                mod.collect()
+            except Exception as e:
+                print(f"::warning::{mod.__name__} 수집 실패: {e}")
 
     hist = load_json(LOWEST, {})
     games = {"updated": stamp, "errors": [], "nintendo": [], "playstation": []}
@@ -95,7 +89,7 @@ def run() -> int:
     if failed:
         print(f"::warning::실패한 곳: {', '.join(failed)}")
     # 모든 곳이 실패했을 때만 실패로 끝낸다 (일부 실패는 경고로 두고 배포는 계속)
-    return 1 if len(failed) >= 3 else 0  # PS 블로그 · 닌텐도 · PlayStation 이 모두 실패
+    return 1 if len(failed) >= 2 else 0  # 닌텐도 · PlayStation 이 모두 실패
 
 
 if __name__ == "__main__":

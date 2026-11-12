@@ -156,3 +156,13 @@ class Lowest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class News(unittest.TestCase):
+    def test_pick(self):
+        from collector.news import pick
+        self.assertTrue(pick("PS Store 블랙 프라이데이 할인 시작", True))
+        self.assertTrue(pick("닌텐도 스위치2 국내 가격 인하 발표", True))
+        self.assertFalse(pick("XBOX 25주년, 아버지 같은 메시지", True))      # 할인 말 없음
+        self.assertFalse(pick("스팀 가을 세일 시작", True))                   # 콘솔 말 없음
+        self.assertTrue(pick("Days of Play 2026 프로모션", False))           # PS 블로그는 콘솔 말 없어도

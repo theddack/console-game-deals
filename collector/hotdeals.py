@@ -130,6 +130,10 @@ def collect() -> dict:
     cutoff = (now - timedelta(days=KEEP_DAYS)).isoformat(timespec="minutes")
     items = sorted((d for d in old.values() if d["first_seen"] >= cutoff),
                    key=lambda d: d.get("posted") or d["first_seen"], reverse=True)
+    # 새 글이 없으면 파일을 그대로 둔다 (updated 만 바뀌어 30분마다 커밋되지 않게)
+    prev = load_json(OUT, {})
+    if prev.get("items") == items and prev.get("errors") == errors:
+        return prev
     result = {"updated": stamp, "errors": errors, "items": items}
     save_json(OUT, result)
     return result
