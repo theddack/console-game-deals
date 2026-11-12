@@ -5,7 +5,8 @@ name: collect
 # 언제 도는가
 # - 주 경로: Google Apps Script 가 KST 09·19시 10분 전후에 workflow_dispatch 로 건다 (scripts/apps_script_trigger.gs).
 #   GitHub Actions 예약은 6시간쯤 늦게 돌았다 (2026-11-05~09: 09:23 예약이 15:46, 19:23 예약이 01:43).
-# - 비상용 예약: KST 10:40 · 20:40 (UTC 1:40 · 11:40). 늦게 돌아도 최근 8시간 안에 수집했으면 건너뛴다(gate) —
+# - 비상용 예약: KST 10:40 · 20:40 (UTC 1:40 · 11:40). 늦게 돌아도 최근 9시간 30분 안에 수집했으면 건너뛴다(gate) —
+#   (예약이 7~9시간 늦게 돌아 8시간 기준으로는 매번 한 번 더 수집했다, 2026-11-10~12)
 #   Apps Script 가 제때 돌았으면 아무것도 하지 않고, Apps Script 가 멈췄을 때만 대신 수집한다.
 # 손으로 돌릴 때(workflow_dispatch) dry_run 을 켜면 텔레그램은 보내지 않고 로그에만 찍는다.
 on:
@@ -31,7 +32,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 비상용 예약 실행만: 마지막 수집(data/collected_at.txt 커밋)이 8시간 안이면 건너뛴다
+  # 비상용 예약 실행만: 마지막 수집(data/collected_at.txt 커밋)이 9시간 30분 안이면 건너뛴다
   gate:
     runs-on: ubuntu-latest
     outputs:
@@ -46,8 +47,8 @@ jobs:
           if [ -z "$last" ]; then echo "skip=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           age=$(( $(date +%s) - $(date -d "$last" +%s) ))
           echo "마지막 수집 $last ($((age / 3600))시간 전)"
-          if [ "$age" -lt 28800 ]; then
-            echo "최근 8시간 안에 수집했으므로 건너뜀"
+          if [ "$age" -lt 34200 ]; then
+            echo "최근 9시간 30분 안에 수집했으므로 건너뜀"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"

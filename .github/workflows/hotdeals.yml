@@ -4,6 +4,8 @@ name: hotdeals
 # 대부분 놓쳤다 (2026-11-09 점검). 요청 2번짜리 가벼운 작업이고, 새 글이 있을 때만 data/hotdeals.json 을 커밋한다.
 # 페이지는 저장소의 이 파일을 바로 읽어서(raw.githubusercontent.com) 배포를 기다리지 않는다.
 # 텔레그램 브리핑은 그대로 collect 작업이 하루 두 번 보낸다 (그 사이 쌓인 핫딜을 모아서).
+# 실행은 Google Apps Script 가 30분마다 건다 (scripts/apps_script_trigger.gs). 아래 예약은 비상용 —
+# Actions 의 30분 예약은 실제로 4~9시간 간격으로만 돌았다 (2026-11-09~12).
 on:
   schedule:
     - cron: "*/30 * * * *"
