@@ -1,6 +1,6 @@
 name: hotdeals
 
-# 핫딜 게시판(루리웹·뽐뿌 RSS)만 자주 받는다. 뽐뿌 RSS 는 최신 15개 = 1시간 남짓 분량이라 하루 두 번 수집으로는
+# 핫딜 게시판(루리웹·뽐뿌 RSS)과 할인 소식(PS 블로그·루리웹 콘솔 뉴스)을 자주 받는다. 뽐뿌 RSS 는 최신 15개 = 1시간 남짓 분량이라 하루 두 번 수집으로는
 # 대부분 놓쳤다 (2026-11-09 점검). 요청 2번짜리 가벼운 작업이고, 새 글이 있을 때만 data/hotdeals.json 을 커밋한다.
 # 페이지는 저장소의 이 파일을 바로 읽어서(raw.githubusercontent.com) 배포를 기다리지 않는다.
 # 텔레그램 브리핑은 그대로 collect 작업이 하루 두 번 보낸다 (그 사이 쌓인 핫딜을 모아서).
@@ -34,15 +34,19 @@ jobs:
       - name: Collect hotdeals
         run: python -m collector.hotdeals
 
+      # 할인 소식(PS 블로그 · 루리웹 콘솔 뉴스). 루리웹 콘솔 뉴스 RSS 도 6시간 남짓 분량이라 여기서 같이 받는다
+      - name: Collect news
+        run: python -m collector.news
+
       # collect 작업도 같은 브랜치에 data 커밋을 올린다. 파일이 겹치지 않으니(이 작업은 hotdeals.json 만)
       # 원격을 다시 받아(rebase) 몇 번 더 시도한다
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/hotdeals.json
+          git add data/hotdeals.json data/news.json
           if git diff --cached --quiet; then
-            echo "새 핫딜 없음"
+            echo "새 핫딜·소식 없음"
             exit 0
           fi
           git commit -m "data: 핫딜 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M') KST"
