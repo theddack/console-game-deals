@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 from datetime import timedelta
 from email.utils import parsedate_to_datetime
 
-from .common import DATA, fetch, load_config, load_json, now_kst, save_json, won
+from .common import DATA, fail_streaks, fetch, load_config, load_json, now_kst, save_json, won
 
 OUT = DATA / "hotdeals.json"
 KEEP_DAYS = 7
@@ -103,7 +103,7 @@ def parse_arca(page: str, cfg: dict) -> list[dict]:
 
 def collect() -> dict:
     cfg = load_config()
-    found, errors = [], []
+    found, failed, tried = [], [], []
     for name, job in [
         ("루리웹", lambda: _rss(RULIWEB, "루리웹", True, cfg)),
         ("뽐뿌", lambda: _rss(PPOMPPU, "뽐뿌", False, cfg)),
@@ -111,12 +111,13 @@ def collect() -> dict:
     ]:
         if name in cfg.get("disabled_hotdeal_sources", []):
             continue
+        tried.append(name)
         try:
             items = job()
             print(f"핫딜 {name}: {len(items)}건")
             found += items
         except Exception as e:
-            errors.append(name)
+            failed.append(name)
             print(f"::warning::핫딜 {name} 수집 실패: {e}")
         time.sleep(1)
 
@@ -132,9 +133,10 @@ def collect() -> dict:
                    key=lambda d: d.get("posted") or d["first_seen"], reverse=True)
     # 새 글이 없으면 파일을 그대로 둔다 (updated 만 바뀌어 30분마다 커밋되지 않게)
     prev = load_json(OUT, {})
-    if prev.get("items") == items and prev.get("errors") == errors:
+    streak, errors = fail_streaks(prev, failed, tried)
+    if prev.get("items") == items and prev.get("errors", []) == errors and prev.get("fail_streak", {}) == streak:
         return prev
-    result = {"updated": stamp, "errors": errors, "items": items}
+    result = {"updated": stamp, "errors": errors, "fail_streak": streak, "items": items}
     save_json(OUT, result)
     return result
 
