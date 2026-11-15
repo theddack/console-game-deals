@@ -166,3 +166,17 @@ class News(unittest.TestCase):
         self.assertFalse(pick("XBOX 25주년, 아버지 같은 메시지", True))      # 할인 말 없음
         self.assertFalse(pick("스팀 가을 세일 시작", True))                   # 콘솔 말 없음
         self.assertTrue(pick("Days of Play 2026 프로모션", False))           # PS 블로그는 콘솔 말 없어도
+
+
+class FailStreak(unittest.TestCase):
+    def test_only_repeated_failures_show(self):
+        from collector.common import fail_streaks
+        prev = {}
+        for _ in range(2):  # 두 번 연속 실패: 아직 표시 안 함
+            streak, errors = fail_streaks(prev, ["루리웹"], ["루리웹", "뽐뿌"])
+            prev = {"fail_streak": streak}
+        self.assertEqual((streak, errors), ({"루리웹": 2}, []))
+        streak, errors = fail_streaks(prev, ["루리웹"], ["루리웹", "뽐뿌"])
+        self.assertEqual(errors, ["루리웹"])  # 세 번째에 표시
+        streak, errors = fail_streaks({"fail_streak": streak}, [], ["루리웹", "뽐뿌"])
+        self.assertEqual((streak, errors), ({}, []))  # 한 번 성공하면 바로 풀림

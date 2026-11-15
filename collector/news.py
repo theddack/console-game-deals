@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from datetime import timedelta
 from email.utils import parsedate_to_datetime
 
-from .common import DATA, KST, fetch, load_json, now_kst, save_json
+from .common import DATA, KST, fail_streaks, fetch, load_json, now_kst, save_json
 
 OUT = DATA / "news.json"
 KEEP_DAYS = 30
@@ -52,14 +52,14 @@ def parse_feed(xml: bytes, source: str, prefix: str, need_console: bool) -> list
 
 
 def collect() -> dict:
-    found, errors = [], []
+    found, failed = [], []
     for source, url, prefix, need_console in FEEDS:
         try:
             items = parse_feed(fetch(url), source, prefix, need_console)
             print(f"소식 {source}: {len(items)}건")
             found += items
         except Exception as e:
-            errors.append(source)
+            failed.append(source)
             print(f"::warning::소식 {source} 수집 실패: {e}")
         time.sleep(1)
 
@@ -74,9 +74,11 @@ def collect() -> dict:
                    key=lambda d: d.get("posted") or d.get("first_seen") or "", reverse=True)[:MAX_ITEMS]
     # 새 글이 없으면 파일을 그대로 둔다 (updated 만 바뀌어 30분마다 커밋되지 않게)
     prev = load_json(OUT, {})
-    if [d["id"] for d in prev.get("items", [])] == [d["id"] for d in items] and prev.get("errors") == errors:
+    streak, errors = fail_streaks(prev, failed, [f[0] for f in FEEDS])
+    if ([d["id"] for d in prev.get("items", [])] == [d["id"] for d in items]
+            and prev.get("errors", []) == errors and prev.get("fail_streak", {}) == streak):
         return prev
-    result = {"updated": stamp, "errors": errors, "items": items}
+    result = {"updated": stamp, "errors": errors, "fail_streak": streak, "items": items}
     save_json(OUT, result)
     return result
 

@@ -72,3 +72,16 @@ def won(text: str | None) -> int | None:
         return None
     n = int(m.group(1).replace(",", ""))
     return n if n >= 100 else None
+
+
+FAIL_SHOW = 3  # 이만큼 연속으로 실패해야 '실패'로 표시한다 (30분마다 받으니 약 1시간 반)
+
+
+def fail_streaks(prev: dict, failed: list[str], tried: list[str]) -> tuple[dict, list[str]]:
+    """소스별 연속 실패 횟수를 이어 세고, FAIL_SHOW 번 넘게 이어진 소스만 errors 로 돌려준다.
+    한두 번의 시간 초과(사이트가 잠깐 느림)는 다음 실행에서 대개 풀리므로 화면·알림에 띄우지 않는다."""
+    streak = dict(prev.get("fail_streak") or {})
+    for name in tried:
+        streak[name] = streak.get(name, 0) + 1 if name in failed else 0
+    streak = {k: v for k, v in streak.items() if v}
+    return streak, [k for k, v in streak.items() if v >= FAIL_SHOW]
