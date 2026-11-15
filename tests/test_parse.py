@@ -180,3 +180,12 @@ class FailStreak(unittest.TestCase):
         self.assertEqual(errors, ["루리웹"])  # 세 번째에 표시
         streak, errors = fail_streaks({"fail_streak": streak}, [], ["루리웹", "뽐뿌"])
         self.assertEqual((streak, errors), ({}, []))  # 한 번 성공하면 바로 풀림
+
+
+class Junk(unittest.TestCase):
+    def test_junk_by_name(self):
+        items = [{"id": "ns:1", "name": "Hentai Panty: Dirty Little Secret", "price": 1000},
+                 {"id": "ns:2", "name": "Catgirls: Neon City", "price": 1000},
+                 {"id": "ns:3", "name": "로그북 (Roguebook)", "price": 2490}]
+        mark(items, {}, date(2026, 11, 15), [], load_config().get("junk_name_keywords"))
+        self.assertEqual([bool(d.get("junk")) for d in items], [True, True, False])

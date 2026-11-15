@@ -108,12 +108,13 @@ def build(state: dict, cfg: dict, now: datetime) -> tuple[list[str], dict]:
         return d["id"] not in sent_games or d["price"] < sent_games[d["id"]]
 
     wish = [d for d in on_sale.values() if d.get("wish") and fresh(d)]
-    lows = [d for d in on_sale.values() if d.get("new_low") and not d.get("wish") and fresh(d)]
+    lows = [d for d in on_sale.values() if d.get("new_low") and not d.get("wish") and not d.get("junk") and fresh(d)]
     min_disc = int(cfg.get("min_discount", 60))
     min_regular = int(cfg.get("big_discount_min_regular", 20000))
     big = [d for d in on_sale.values()
            if d["discount"] >= min_disc and d["regular"] >= min_regular and d.get("type", "") in GAME_TYPES
-           and not d.get("plus") and not d.get("wish") and not d.get("new_low") and d["id"] not in sent_games]
+           and not d.get("plus") and not d.get("wish") and not d.get("new_low") and not d.get("junk")
+           and d["id"] not in sent_games]
     # 1,000원짜리 소품이 위를 덮지 않게, 아끼는 금액이 큰 순 (정가 높은 대작이 먼저)
     big.sort(key=lambda d: -(d["regular"] - d["price"]))
     big_max = int(cfg.get("big_discount_notify_max", LIST_MAX))
