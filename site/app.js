@@ -11,7 +11,21 @@ const STORES = ["all", "playstation", "nintendo"];
 const BASE_TYPES = ["", "게임", "에디션", "번들"];
 
 const state = { store: "all", kind: "all", shown: PAGE, hotShown: HOT_PAGE, data: { hot: null, games: null, news: null } };
-const toggles = { big: true, lowest: false, base: false, noplus: false, vr: false };
+const toggles = { big: true, lowest: false, base: false, noplus: false, vr: false, junk: true, showHidden: false };
+
+// 내가 숨긴 게임 (이 브라우저에만 저장). 합쳐진 카드는 버전 중 하나라도 숨겼으면 숨긴 것으로 본다
+const HIDDEN_KEY = "hiddenGames";
+let hidden = new Set();
+try { hidden = new Set(JSON.parse(localStorage.getItem(HIDDEN_KEY) || "[]")); } catch {}
+const idsOf = (d) => (d.versions || [d]).map((v) => v.id);
+const isHidden = (d) => idsOf(d).some((id) => hidden.has(id));
+// 위쪽 줄(TOP 10·곧 끝나는 할인·새 최저가)에는 양산형과 숨긴 게임을 넣지 않는다
+const shown = (d) => !d.junk && !isHidden(d);
+function saveHidden() {
+  try { localStorage.setItem(HIDDEN_KEY, JSON.stringify([...hidden])); } catch {}
+  const b = $('[data-t="showHidden"]');
+  if (b) b.textContent = `숨긴 게임 ${hidden.size}개`;
+}
 
 // 발매 시기. 닌텐도는 발매일이 있고, PS 는 스토어 표시(방금 출시·출시 예정)만 있다
 const AGES = {
@@ -131,7 +145,11 @@ function card(d, rank) {
   if ((d.vr || []).length) meta.push(esc(d.vr.join("·")));
   if (d.released) meta.push(`${d.released.slice(0, 4)}년 발매`);
   if (d.ends) meta.push(endText(d.ends));
-  return `<li><a class="card" href="${esc(d.url)}" target="_blank" rel="noopener">
+  if (d.junk) meta.push(`<span class="wish">양산형 의심</span>`);
+  const back = isHidden(d);
+  const hideBtn = `<button class="hide" type="button" data-ids="${esc(idsOf(d).join(","))}"
+    title="${back ? "다시 보이기" : "이 게임 숨기기"}" aria-label="${back ? "다시 보이기" : "이 게임 숨기기"}">${back ? "↺" : "×"}</button>`;
+  return `<li class="cell">${hideBtn}<a class="card" href="${esc(d.url)}" target="_blank" rel="noopener">
     <div class="art ${cls}">${img}<span class="tag ${cls}">${esc(plat)}</span>${flag}${rank != null ? `<span class="rank">${rank}</span>` : ""}</div>
     <div class="body">
       <div class="name">${esc(d.name)}</div>
@@ -157,13 +175,13 @@ function renderStats() {
 
 function psTop() {
   return group(games("playstation").filter((d) => d.pop && !d.plus && BASE_TYPES.includes(d.type ?? "")))
-    .sort((a, b) => a.pop - b.pop).slice(0, 10);
+    .filter(shown).sort((a, b) => a.pop - b.pop).slice(0, 10);
 }
 
 function nsEnding() {
   return group(games("nintendo").filter((d) => d.regular >= 30000 && d.discount >= 50 && d.ends
     && daysLeft(d.ends) >= 0 && daysLeft(d.ends) <= 7))
-    .sort((a, b) => new Date(a.ends) - new Date(b.ends) || (b.regular - b.price) - (a.regular - a.price)).slice(0, 12);
+    .filter(shown).sort((a, b) => new Date(a.ends) - new Date(b.ends) || (b.regular - b.price) - (a.regular - a.price)).slice(0, 12);
 }
 
 function renderTop() {
@@ -175,7 +193,7 @@ function renderTop() {
   const ending = s === "playstation" ? [] : nsEnding();
   $("#ns-end-block").hidden = !ending.length;
   $("#ns-end").innerHTML = ending.map((d) => card(d)).join("");
-  const lows = group(games().filter((d) => d.new_low))
+  const lows = group(games().filter((d) => d.new_low)).filter(shown)
     .sort((a, b) => (b.prev_low - b.price) - (a.prev_low - a.price)).slice(0, 12);
   $("#lows-block").hidden = !lows.length;
   $("#lows").innerHTML = lows.map((d) => card(d)).join("");
@@ -241,8 +259,9 @@ function filtered() {
       && (!ps || !toggles.base || BASE_TYPES.includes(d.type ?? ""))
       && (!ps || !toggles.noplus || !d.plus)
       && (!toggles.vr || (d.vr || []).length)
+      && (!toggles.junk || !d.junk)
       && (!q || d.name.toLowerCase().replace(/\s+/g, "").includes(q));
-  }));
+  })).filter((d) => (toggles.showHidden ? isHidden(d) : !isHidden(d)));
   const relKey = (d) => (d.store === "playstation" ? d.rel ?? 1e9 : d.released ? -new Date(d.released).getTime() / DAY : 1e9);
   const key = {
     save: (d) => -(d.regular - d.price),
@@ -315,6 +334,19 @@ function bind() {
   ["#sort", "#mindisc", "#platform", "#genre", "#age"].forEach((s) => $(s).addEventListener("change", () => { state.shown = PAGE; renderBrowse(); }));
   $("#more").addEventListener("click", () => { state.shown += PAGE; renderBrowse(); });
   window.addEventListener("hashchange", () => route());
+  // 카드의 × (숨기기) / ↺ (다시 보이기)
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest(".hide");
+    if (!b) return;
+    e.preventDefault();
+    const ids = b.dataset.ids.split(",");
+    const back = ids.some((id) => hidden.has(id));
+    ids.forEach((id) => (back ? hidden.delete(id) : hidden.add(id)));
+    saveHidden();
+    renderTop();
+    renderBrowse();
+  });
+  saveHidden();
 }
 
 // 예전 주소(#hot · #news)도 받는다

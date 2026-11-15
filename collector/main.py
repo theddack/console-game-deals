@@ -26,10 +26,11 @@ def _norm(s: str) -> str:
     return re.sub(r"[\s:：\-–—'’!?.,()\[\]™®]", "", s.lower())
 
 
-def mark(items: list[dict], hist: dict, today: date, wishlist: list[str]) -> None:
-    """최저가·위시리스트 표시를 붙이고 기록을 갱신한다. hist[id] = [최저가, 그날, 처음 본 날, 마지막 본 날]."""
+def mark(items: list[dict], hist: dict, today: date, wishlist: list[str], junk: list[str] | None = None) -> None:
+    """최저가·위시리스트·양산형 표시를 붙이고 기록을 갱신한다. hist[id] = [최저가, 그날, 처음 본 날, 마지막 본 날]."""
     t = today.isoformat()
     wants = [_norm(w) for w in wishlist if w.strip()]
+    junk_words = [w.lower() for w in junk or [] if w.strip()]
     for d in items:
         prev = hist.get(d["id"])
         if prev is None:
@@ -49,6 +50,8 @@ def mark(items: list[dict], hist: dict, today: date, wishlist: list[str]) -> Non
         name = _norm(d["name"])
         if any(w in name for w in wants):
             d["wish"] = True
+        if any(w in d["name"].lower() for w in junk_words):
+            d["junk"] = True
 
 
 def run() -> int:
@@ -71,7 +74,7 @@ def run() -> int:
     for key, label, mod in [("nintendo", "닌텐도", nintendo), ("playstation", "PlayStation", playstation)]:
         try:
             items = mod.collect()
-            mark(items, hist, now.date(), cfg.get("wishlist", []))
+            mark(items, hist, now.date(), cfg.get("wishlist", []), cfg.get("junk_name_keywords", []))
             items.sort(key=lambda d: (-d["discount"], d["price"]))
             games[key] = items
         except Exception as e:

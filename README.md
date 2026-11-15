@@ -56,6 +56,8 @@ git add data/ns_catalog.json && git commit -m "닌텐도 게임 목록 갱신" &
 - `big_discount_notify_max`: '큰 할인'을 한 번에 몇 개까지 보여 줄지 (기본 10)
 - `device_price_limits`: 기기 핫딜 가격 상한. 예: `{"스위치2": 450000}` → 제목에 '스위치2'가 있으면 45만원 이하일 때만 알림
 - `disabled_hotdeal_sources`: 수집하지 않을 핫딜 게시판 (기본 `["아카라이브"]`)
+- `junk_name_keywords`: 이름에 이 말이 있으면 '양산형'으로 표시해 페이지에서 기본으로 숨기고 텔레그램 '큰 할인'·'새 최저가'에서 뺍니다.
+  스토어가 AI 생성 여부를 알려주지 않아 이름으로만 거릅니다. 페이지 카드의 × 로 숨긴 게임은 그 브라우저에만 저장됩니다
 - `console_keywords` · `device_keywords` · `game_title_keywords`: 핫딜 글을 고르는 말
 
 ## 텔레그램 연결
