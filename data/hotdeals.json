@@ -1,9 +1,28 @@
 {
- "updated": "2026-11-15T15:58+09:00",
- "errors": [
-  "루리웹"
- ],
+ "updated": "2026-11-15T23:19+09:00",
+ "errors": [],
+ "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109051",
+   "source": "루리웹",
+   "title": "[네이버쇼핑]PS5 마블 울버린패키지 +스틱커버 34,800원[무배]",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109051",
+   "price": 34800,
+   "kind": "game",
+   "posted": "2026-11-15T19:08+09:00",
+   "first_seen": "2026-11-15T23:19+09:00"
+  },
+  {
+   "id": "루리웹:109048",
+   "source": "루리웹",
+   "title": "[홈플러스] 필스너우르겔 / 코젤다크 8켄 9,900원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109048",
+   "price": 9900,
+   "kind": "game",
+   "posted": "2026-11-15T16:12+09:00",
+   "first_seen": "2026-11-15T23:19+09:00"
+  },
   {
    "id": "루리웹:109035",
    "source": "루리웹",
