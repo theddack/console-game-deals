@@ -1,8 +1,68 @@
 {
- "updated": "2026-11-16T05:07+09:00",
+ "updated": "2026-11-16T16:01+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109080",
+   "source": "루리웹",
+   "title": "[소프라노] ps5 콜오브 듀티 모던워페어4 88,900원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109080",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-16T15:58+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
+  {
+   "id": "루리웹:109079",
+   "source": "루리웹",
+   "title": "스위치 캐슬바니아 벨몬트의 저주 미드나이트 에디션",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109079",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-16T15:47+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
+  {
+   "id": "루리웹:109075",
+   "source": "루리웹",
+   "title": "[지마켓] PS5 듀얼센스 카드할인 69,570원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109075",
+   "price": 69570,
+   "kind": "device",
+   "posted": "2026-11-16T12:42+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
+  {
+   "id": "루리웹:109070",
+   "source": "루리웹",
+   "title": "[PSstore] LGU+으로 PSstore 결제시 최대 3만원 청구할인 이벤트",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109070",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-16T11:33+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
+  {
+   "id": "루리웹:109069",
+   "source": "루리웹",
+   "title": "[네이버] PS5 레고 호라이즌 어드벤처 (12800원/무료배송)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109069",
+   "price": 12800,
+   "kind": "game",
+   "posted": "2026-11-16T09:58+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
+  {
+   "id": "루리웹:109068",
+   "source": "루리웹",
+   "title": "[한국닌텐도] 소프트웨어 메이커 라인업 세일 실시 (가격 본문)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109068",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-16T09:40+09:00",
+   "first_seen": "2026-11-16T16:01+09:00"
+  },
   {
    "id": "루리웹:109051",
    "source": "루리웹",
@@ -272,46 +332,6 @@
    "kind": "game",
    "posted": "2026-11-09T16:54+09:00",
    "first_seen": "2026-11-09T22:57+09:00"
-  },
-  {
-   "id": "루리웹:108861",
-   "source": "루리웹",
-   "title": "[네이버] PS5 브레이크 더 애니멀 프리즌 37800원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108861",
-   "price": 37800,
-   "kind": "game",
-   "posted": "2026-11-09T14:44+09:00",
-   "first_seen": "2026-11-09T15:46+09:00"
-  },
-  {
-   "id": "루리웹:108859",
-   "source": "루리웹",
-   "title": "[G마켓] 젤다의 전설 시간의 오카리나 양면슬리브 특전판 (88,000원/무배)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108859",
-   "price": 88000,
-   "kind": "game",
-   "posted": "2026-11-09T14:06+09:00",
-   "first_seen": "2026-11-09T15:46+09:00"
-  },
-  {
-   "id": "루리웹:108857",
-   "source": "루리웹",
-   "title": "[소프라노몰] 스위치 파이널 판타지 레조넌스 한정판/289,000원/3,000",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108857",
-   "price": 289000,
-   "kind": "game",
-   "posted": "2026-11-09T13:55+09:00",
-   "first_seen": "2026-11-09T15:46+09:00"
-  },
-  {
-   "id": "루리웹:108856",
-   "source": "루리웹",
-   "title": "[네이버] 닌텐도 스위치2 파이어엠블렘 만자천홍 다그단 컬렉션 148,000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108856",
-   "price": 148000,
-   "kind": "game",
-   "posted": "2026-11-09T13:34+09:00",
-   "first_seen": "2026-11-09T15:46+09:00"
   }
  ]
 }
