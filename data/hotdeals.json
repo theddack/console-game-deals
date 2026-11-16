@@ -1,8 +1,38 @@
 {
- "updated": "2026-11-16T16:01+09:00",
+ "updated": "2026-11-17T02:16+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109095",
+   "source": "루리웹",
+   "title": "[SSG] PS5 LEGO 호라이즌 어드벤처 / 12,800원 (무배)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109095",
+   "price": 12800,
+   "kind": "game",
+   "posted": "2026-11-17T01:02+09:00",
+   "first_seen": "2026-11-17T02:16+09:00"
+  },
+  {
+   "id": "루리웹:109090",
+   "source": "루리웹",
+   "title": "[플스스토어] PlayStation Plus 멤버십 할인 가격다양",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109090",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-16T19:47+09:00",
+   "first_seen": "2026-11-17T02:16+09:00"
+  },
+  {
+   "id": "루리웹:109084",
+   "source": "루리웹",
+   "title": "PS5 LEGO 호라이즌 어드벤처 12,800원 (쿠폰 사용시 7,800원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109084",
+   "price": 12800,
+   "kind": "game",
+   "posted": "2026-11-16T16:49+09:00",
+   "first_seen": "2026-11-17T02:16+09:00"
+  },
   {
    "id": "루리웹:109080",
    "source": "루리웹",
@@ -16,9 +46,9 @@
   {
    "id": "루리웹:109079",
    "source": "루리웹",
-   "title": "스위치 캐슬바니아 벨몬트의 저주 미드나이트 에디션",
+   "title": "[네이버쇼핑]스위치 캐슬바니아 벨몬트의저주 미드나이트에디션(46,000원/유배)",
    "url": "https://bbs.ruliweb.com/market/board/1020/read/109079",
-   "price": null,
+   "price": 46000,
    "kind": "game",
    "posted": "2026-11-16T15:47+09:00",
    "first_seen": "2026-11-16T16:01+09:00"
@@ -312,26 +342,6 @@
    "kind": "game",
    "posted": "2026-11-10T12:00+09:00",
    "first_seen": "2026-11-10T13:44+09:00"
-  },
-  {
-   "id": "루리웹:108869",
-   "source": "루리웹",
-   "title": "[게임터치몰] ps5.스위치 하늘의 궤적2 한정판 133,300원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108869",
-   "price": 133300,
-   "kind": "game",
-   "posted": "2026-11-09T19:10+09:00",
-   "first_seen": "2026-11-09T22:57+09:00"
-  },
-  {
-   "id": "루리웹:108864",
-   "source": "루리웹",
-   "title": "[지마켓] 젤다의 전설 시간의 오카리나 아크릴 특전 (88,000원/유배)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108864",
-   "price": 88000,
-   "kind": "game",
-   "posted": "2026-11-09T16:54+09:00",
-   "first_seen": "2026-11-09T22:57+09:00"
   }
  ]
 }
