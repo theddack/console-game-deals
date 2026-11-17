@@ -1,10 +1,38 @@
 {
- "updated": "2026-11-17T17:51+09:00",
+ "updated": "2026-11-18T03:07+09:00",
  "errors": [],
- "fail_streak": {
-  "루리웹": 1
- },
+ "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109117",
+   "source": "루리웹",
+   "title": "[PSN] 마블 투혼 34% 할인 46,068원 (~11/30)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109117",
+   "price": 46068,
+   "kind": "game",
+   "posted": "2026-11-17T21:02+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109116",
+   "source": "루리웹",
+   "title": "[옥션] Ps5 콜 오브 듀티 모던 워페어4",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109116",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-17T20:34+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109111",
+   "source": "루리웹",
+   "title": "[소프라노] ps5 콜 오브 듀티 모던 워페어4 88,900원 무료배송",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109111",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-17T17:27+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
   {
    "id": "뽐뿌:749546",
    "source": "뽐뿌",
@@ -14,6 +42,56 @@
    "kind": "game",
    "posted": "2026-11-17T17:22+09:00",
    "first_seen": "2026-11-17T17:51+09:00"
+  },
+  {
+   "id": "루리웹:109110",
+   "source": "루리웹",
+   "title": "[플레이스위치] PS5 콜 오브 듀티 모던 웨페어 4/88,900/무배",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109110",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-17T16:05+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109107",
+   "source": "루리웹",
+   "title": "(게임터치몰)PS5 콜 오브 듀티 모던 워페어 4 한글판 88,900원/2500원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109107",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-17T14:26+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109106",
+   "source": "루리웹",
+   "title": "[네이버] ps5 콜 오브 듀티 모던 워페어4 88,900원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109106",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-17T13:38+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109105",
+   "source": "루리웹",
+   "title": "[한국PS스토어] 블랙 프라이데이 세일 라인업 추가",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109105",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-17T13:21+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
+  },
+  {
+   "id": "루리웹:109102",
+   "source": "루리웹",
+   "title": "[SSG] PS5 마이 리틀 퍼피 디럭스에디션 한정판 (42,400원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109102",
+   "price": 42400,
+   "kind": "game",
+   "posted": "2026-11-17T10:09+09:00",
+   "first_seen": "2026-11-18T03:07+09:00"
   },
   {
    "id": "루리웹:109100",
@@ -314,26 +392,6 @@
    "kind": "game",
    "posted": "2026-11-11T09:39+09:00",
    "first_seen": "2026-11-11T09:59+09:00"
-  },
-  {
-   "id": "루리웹:108899",
-   "source": "루리웹",
-   "title": "[하이마트] PS5 인왕3 (39,800/0)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108899",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-10T15:37+09:00",
-   "first_seen": "2026-11-10T22:14+09:00"
-  },
-  {
-   "id": "루리웹:108898",
-   "source": "루리웹",
-   "title": "[플레이샵] PS5 랜덤박스/30,000/2,500",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108898",
-   "price": 30000,
-   "kind": "game",
-   "posted": "2026-11-10T14:47+09:00",
-   "first_seen": "2026-11-10T22:14+09:00"
   }
  ]
 }
