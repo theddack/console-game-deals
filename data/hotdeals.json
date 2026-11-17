@@ -1,8 +1,20 @@
 {
- "updated": "2026-11-17T09:56+09:00",
+ "updated": "2026-11-17T17:51+09:00",
  "errors": [],
- "fail_streak": {},
+ "fail_streak": {
+  "루리웹": 1
+ },
  "items": [
+  {
+   "id": "뽐뿌:749546",
+   "source": "뽐뿌",
+   "title": "[롯데온] 플레이스테이션 기프트카드 3만원권 (28,200원/무료)",
+   "url": "http://www.ppomppu.co.kr/zboard/view.php?id=ppomppu&no=749546",
+   "price": 28200,
+   "kind": "game",
+   "posted": "2026-11-17T17:22+09:00",
+   "first_seen": "2026-11-17T17:51+09:00"
+  },
   {
    "id": "루리웹:109100",
    "source": "루리웹",
@@ -322,36 +334,6 @@
    "kind": "game",
    "posted": "2026-11-10T14:47+09:00",
    "first_seen": "2026-11-10T22:14+09:00"
-  },
-  {
-   "id": "루리웹:108897",
-   "source": "루리웹",
-   "title": "[플레이샵] PS5 캐슬바니아 벨몬트의 저주 미드나이트 에디션/46,000/무배",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108897",
-   "price": 46000,
-   "kind": "game",
-   "posted": "2026-11-10T12:34+09:00",
-   "first_seen": "2026-11-10T13:44+09:00"
-  },
-  {
-   "id": "루리웹:108894",
-   "source": "루리웹",
-   "title": "[아크시스템] ps4 월희 한정판 99,000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108894",
-   "price": 99000,
-   "kind": "game",
-   "posted": "2026-11-10T12:12+09:00",
-   "first_seen": "2026-11-10T13:44+09:00"
-  },
-  {
-   "id": "루리웹:108891",
-   "source": "루리웹",
-   "title": "[겜우리] NS2 더 크루 모터페스트 예약 판매 / 59,800원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108891",
-   "price": 59800,
-   "kind": "game",
-   "posted": "2026-11-10T12:00+09:00",
-   "first_seen": "2026-11-10T13:44+09:00"
   }
  ]
 }
