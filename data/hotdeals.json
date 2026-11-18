@@ -1,10 +1,68 @@
 {
- "updated": "2026-11-18T17:53+09:00",
+ "updated": "2026-11-19T02:46+09:00",
  "errors": [],
- "fail_streak": {
-  "루리웹": 1
- },
+ "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109149",
+   "source": "루리웹",
+   "title": "[오늘의집]닌텐도 스위치2 타이틀 제노블레이드 크로니클스2 62,620원 외",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109149",
+   "price": 62620,
+   "kind": "game",
+   "posted": "2026-11-18T20:36+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
+  {
+   "id": "루리웹:109148",
+   "source": "루리웹",
+   "title": "[소프라노몰] ps5 하늘의 궤적 the 1st / 69800원 유배",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109148",
+   "price": 69800,
+   "kind": "game",
+   "posted": "2026-11-18T19:01+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
+  {
+   "id": "루리웹:109143",
+   "source": "루리웹",
+   "title": "[롯데온] ps5 콜 오브 듀티 모던워페어4 88900원/ 배송비 2500원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109143",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-18T15:18+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
+  {
+   "id": "루리웹:109142",
+   "source": "루리웹",
+   "title": "[테크라인] 스위치 드래곤 퀘스트 1&2 한정판 208,000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109142",
+   "price": 208000,
+   "kind": "game",
+   "posted": "2026-11-18T15:07+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
+  {
+   "id": "루리웹:109140",
+   "source": "루리웹",
+   "title": "[게임터치몰] PS5 콜 오브 듀티 모던 워페어 4 /88,900/3,000",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109140",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-18T12:53+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
+  {
+   "id": "루리웹:109135",
+   "source": "루리웹",
+   "title": "[G마켓]PS5 콜오브듀티 모던 웨페어4 /88,900/2500",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109135",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-18T11:12+09:00",
+   "first_seen": "2026-11-19T02:46+09:00"
+  },
   {
    "id": "루리웹:109128",
    "source": "루리웹",
