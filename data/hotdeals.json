@@ -1,8 +1,28 @@
 {
- "updated": "2026-11-19T02:46+09:00",
+ "updated": "2026-11-19T08:52+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109164",
+   "source": "루리웹",
+   "title": "[플스] 기프트 카드 5만원권 46000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109164",
+   "price": 46000,
+   "kind": "game",
+   "posted": "2026-11-19T08:39+09:00",
+   "first_seen": "2026-11-19T08:52+09:00"
+  },
+  {
+   "id": "루리웹:109157",
+   "source": "루리웹",
+   "title": "[플스] 플스 기프트 카드 10만원권 92000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109157",
+   "price": 92000,
+   "kind": "game",
+   "posted": "2026-11-19T03:00+09:00",
+   "first_seen": "2026-11-19T08:52+09:00"
+  },
   {
    "id": "루리웹:109149",
    "source": "루리웹",
