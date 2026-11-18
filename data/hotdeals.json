@@ -1,8 +1,38 @@
 {
- "updated": "2026-11-18T03:07+09:00",
+ "updated": "2026-11-18T10:08+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109128",
+   "source": "루리웹",
+   "title": "[플레이스위치] PS5 콜오브듀티 모던 웨페어4 /88,900/무료배송",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109128",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-18T09:28+09:00",
+   "first_seen": "2026-11-18T10:08+09:00"
+  },
+  {
+   "id": "루리웹:109127",
+   "source": "루리웹",
+   "title": "[이마트매장] PS5 듀얼센스 컨트롤러(인디고)(2026) (69,800원/무료)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109127",
+   "price": 69800,
+   "kind": "device",
+   "posted": "2026-11-18T07:51+09:00",
+   "first_seen": "2026-11-18T10:08+09:00"
+  },
+  {
+   "id": "루리웹:109126",
+   "source": "루리웹",
+   "title": "[PlayShop] PS5 PRO 응모 (다양)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109126",
+   "price": null,
+   "kind": "device",
+   "posted": "2026-11-18T07:43+09:00",
+   "first_seen": "2026-11-18T10:08+09:00"
+  },
   {
    "id": "루리웹:109117",
    "source": "루리웹",
@@ -382,16 +412,6 @@
    "kind": "game",
    "posted": "2026-11-11T10:13+09:00",
    "first_seen": "2026-11-11T16:41+09:00"
-  },
-  {
-   "id": "루리웹:108926",
-   "source": "루리웹",
-   "title": "[디지털터치] PS5 캐슬바니아 벨몬트의 저주 미드나이트 에디션/46,000/유배",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108926",
-   "price": 46000,
-   "kind": "game",
-   "posted": "2026-11-11T09:39+09:00",
-   "first_seen": "2026-11-11T09:59+09:00"
   }
  ]
 }
