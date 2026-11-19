@@ -1,8 +1,68 @@
 {
- "updated": "2026-11-19T08:52+09:00",
+ "updated": "2026-11-19T14:50+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109175",
+   "source": "루리웹",
+   "title": "(겜우리 등) PS5 하늘의궤적 1st 69800원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109175",
+   "price": 69800,
+   "kind": "game",
+   "posted": "2026-11-19T12:18+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
+  {
+   "id": "루리웹:109174",
+   "source": "루리웹",
+   "title": "[겜우리] NS 선셋 힐즈 예약 판매 / 42,900원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109174",
+   "price": 42900,
+   "kind": "game",
+   "posted": "2026-11-19T12:01+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
+  {
+   "id": "루리웹:109173",
+   "source": "루리웹",
+   "title": "[겜우리] NS2 본체 몬스터 헌터 와일드 세트 / 778,000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109173",
+   "price": 778000,
+   "kind": "device",
+   "posted": "2026-11-19T12:00+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
+  {
+   "id": "루리웹:109172",
+   "source": "루리웹",
+   "title": "(지마켓)PS5 GTA 바이스시티 팩+포스터 포함(89880,83520/무료배송)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109172",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-19T11:57+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
+  {
+   "id": "루리웹:109169",
+   "source": "루리웹",
+   "title": "[지마켓] ps5 콜 오브 듀티 모던 워페어4 /88900/2500",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109169",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-19T11:09+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
+  {
+   "id": "루리웹:109168",
+   "source": "루리웹",
+   "title": "[닌텐도] NS2 몬스터헌터 와일즈 세트 예약 (778,000원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109168",
+   "price": 778000,
+   "kind": "game",
+   "posted": "2026-11-19T10:49+09:00",
+   "first_seen": "2026-11-19T14:50+09:00"
+  },
   {
    "id": "루리웹:109164",
    "source": "루리웹",
@@ -432,36 +492,6 @@
    "kind": "game",
    "posted": "2026-11-13T09:30+09:00",
    "first_seen": "2026-11-13T09:52+09:00"
-  },
-  {
-   "id": "루리웹:108965",
-   "source": "루리웹",
-   "title": "[닌텐도스토어]시간의 오카리나 젤다의 전설 악기(추첨 판매 응모)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108965",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-12T09:30+09:00",
-   "first_seen": "2026-11-12T12:16+09:00"
-  },
-  {
-   "id": "루리웹:108964",
-   "source": "루리웹",
-   "title": "[하이마트 온라인] PS4 앤섬 / 990원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108964",
-   "price": 990,
-   "kind": "game",
-   "posted": "2026-11-12T09:19+09:00",
-   "first_seen": "2026-11-12T12:16+09:00"
-  },
-  {
-   "id": "루리웹:108963",
-   "source": "루리웹",
-   "title": "[네이버] 플레이스테이션 스토어 기프트카드 10만원권 8%할인 92000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108963",
-   "price": 92000,
-   "kind": "game",
-   "posted": "2026-11-12T09:18+09:00",
-   "first_seen": "2026-11-12T12:16+09:00"
   }
  ]
 }
