@@ -1,5 +1,5 @@
 {
- "saved_at": "2026-11-20T09:13+09:00",
+ "saved_at": "2026-11-20T19:14+09:00",
  "hotdeals": {
   "루리웹:108699": "2026-11-04",
   "루리웹:108696": "2026-11-04",
@@ -94,13 +94,15 @@
   "루리웹:109168": "2026-11-19",
   "루리웹:109204": "2026-11-20",
   "루리웹:109202": "2026-11-20",
-  "루리웹:109182": "2026-11-20"
+  "루리웹:109182": "2026-11-20",
+  "루리웹:109212": "2026-11-20"
  },
  "news": {
   "psblog:https://blog.ko.playstation.com/2026/11/04/20261104-psstore/": "2026-11-04",
   "psblog:https://blog.ko.playstation.com/2026/11/16/20261116-bf/": "2026-11-16",
   "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2366543": "2026-11-17",
-  "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2366604": "2026-11-18"
+  "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2366604": "2026-11-18",
+  "psblog:https://blog.ko.playstation.com/2026/11/20/20261120-psplus/": "2026-11-20"
  },
  "games": {
   "ps:HP0177-PPSA05739_00-P5RP5SP5TSET0000": 59895,
@@ -484,7 +486,6 @@
   "ps:UP6520-PPSA06425_00-8440883895336757": 11940,
   "ps:UP4581-CUSA15719_00-DISINTEGRATION01": 6960,
   "ps:EP4385-PPSA05594_00-7584196509987040": 6960,
-  "ps:EP4385-CUSA30891_00-6983803568215690": 6960,
   "ps:EP5410-CUSA16790_00-2ZQUESTHUNTERPS4": 6960,
   "ps:UP4581-PPSA07948_00-AFUS00000000SIEA": 6960,
   "ps:HP3536-PPSA10998_00-0114345363466958": 6960,
