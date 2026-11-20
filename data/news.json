@@ -1,7 +1,9 @@
 {
- "updated": "2026-11-20T12:52+09:00",
+ "updated": "2026-11-21T05:43+09:00",
  "errors": [],
- "fail_streak": {},
+ "fail_streak": {
+  "루리웹 콘솔 뉴스": 1
+ },
  "items": [
   {
    "id": "psblog:https://blog.ko.playstation.com/2026/11/20/20261120-psplus/",
