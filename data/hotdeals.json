@@ -1,8 +1,108 @@
 {
- "updated": "2026-11-20T12:51+09:00",
+ "updated": "2026-11-20T21:29+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109240",
+   "source": "루리웹",
+   "title": "[이마트] 젤다의 전설 왕국의 눈물 컬렉터스 에디션(69,900원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109240",
+   "price": 69900,
+   "kind": "game",
+   "posted": "2026-11-20T20:52+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109238",
+   "source": "루리웹",
+   "title": "닌텐도 스위치 2 호리 일렉트릭 시간의 오카리나 젤다의 전설",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109238",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T19:56+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109237",
+   "source": "루리웹",
+   "title": "[카카오톡딜] PS5 듀얼센스 무선 컨트롤러 카페68,850원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109237",
+   "price": 68850,
+   "kind": "device",
+   "posted": "2026-11-20T19:50+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109235",
+   "source": "루리웹",
+   "title": "[PS5] MOUSE P.I. For Hire (19000/무료배송)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109235",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T19:01+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109233",
+   "source": "루리웹",
+   "title": "Psn 인왕 컬렉션 할인",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109233",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T17:31+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109228",
+   "source": "루리웹",
+   "title": "[컴퓨존] 스위치2 포켓몬 레전드 ZA + 메가차원러시 DLC 합본팩(우리카드)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109228",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T16:00+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109227",
+   "source": "루리웹",
+   "title": "[네이버] PS5 콜오브듀티 모던 워페어4 /88,900원/2500원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109227",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-20T15:45+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109226",
+   "source": "루리웹",
+   "title": "[네이버] PS5 마우스 포 하이어 23,800원 무배",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109226",
+   "price": 23800,
+   "kind": "game",
+   "posted": "2026-11-20T15:43+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109220",
+   "source": "루리웹",
+   "title": "[플레이샵] PS5 콜 오브 듀티 모던 워페어 4 /88900/무배",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109220",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T13:27+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
+  {
+   "id": "루리웹:109217",
+   "source": "루리웹",
+   "title": "양산 이마트]젤다 왕눈 컬렉터즈 에디션 69900",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109217",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-20T13:11+09:00",
+   "first_seen": "2026-11-20T21:29+09:00"
+  },
   {
    "id": "루리웹:109212",
    "source": "루리웹",
@@ -472,56 +572,6 @@
    "kind": "game",
    "posted": "2026-11-13T17:05+09:00",
    "first_seen": "2026-11-14T00:54+09:00"
-  },
-  {
-   "id": "뽐뿌:748617",
-   "source": "뽐뿌",
-   "title": "[겟디즈] PS5 Pro 2TB 1,298,000원 / 듀얼센스 87,500원~",
-   "url": "http://www.ppomppu.co.kr/zboard/view.php?id=ppomppu&no=748617",
-   "price": 1298000,
-   "kind": "device",
-   "posted": "2026-11-13T15:30+09:00",
-   "first_seen": "2026-11-13T16:35+09:00"
-  },
-  {
-   "id": "루리웹:109005",
-   "source": "루리웹",
-   "title": "[네이버] 스위치 캐슬바니아 벨몬트의 저주 미드나이트 에디션 46,000원/유배",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109005",
-   "price": 46000,
-   "kind": "game",
-   "posted": "2026-11-13T12:06+09:00",
-   "first_seen": "2026-11-13T16:35+09:00"
-  },
-  {
-   "id": "루리웹:109004",
-   "source": "루리웹",
-   "title": "[겜우리] NS2 몬스터헌터 와일즈 디럭스 에디션 예약 판매 / 45,800원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109004",
-   "price": 45800,
-   "kind": "game",
-   "posted": "2026-11-13T12:00+09:00",
-   "first_seen": "2026-11-13T16:35+09:00"
-  },
-  {
-   "id": "루리웹:108996",
-   "source": "루리웹",
-   "title": "[소프라노몰]닌텐도 스위치 캐슬바니아 벨몬트의 저주 미드나이트 에디션 한글판",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108996",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-13T10:25+09:00",
-   "first_seen": "2026-11-13T16:35+09:00"
-  },
-  {
-   "id": "루리웹:108992",
-   "source": "루리웹",
-   "title": "[겜우리] PS5 포탈 플레이어 미드나이트 블랙 예약 판매 / 378,000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108992",
-   "price": 378000,
-   "kind": "device",
-   "posted": "2026-11-13T10:00+09:00",
-   "first_seen": "2026-11-13T16:35+09:00"
   }
  ]
 }
