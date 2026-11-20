@@ -1,8 +1,18 @@
 {
- "updated": "2026-11-20T07:43+09:00",
+ "updated": "2026-11-20T12:51+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109212",
+   "source": "루리웹",
+   "title": "[게임터치몰] PS5 콜 오브 듀티 모던 워페어 4 /88,900/3,000",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109212",
+   "price": 88900,
+   "kind": "game",
+   "posted": "2026-11-20T11:33+09:00",
+   "first_seen": "2026-11-20T12:51+09:00"
+  },
   {
    "id": "루리웹:109204",
    "source": "루리웹",
@@ -512,16 +522,6 @@
    "kind": "device",
    "posted": "2026-11-13T10:00+09:00",
    "first_seen": "2026-11-13T16:35+09:00"
-  },
-  {
-   "id": "루리웹:108991",
-   "source": "루리웹",
-   "title": "[네이버] 플레이스테이션 기프트카드 - 10만 . 8% 할인 ( 92,000원 )",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/108991",
-   "price": 92000,
-   "kind": "game",
-   "posted": "2026-11-13T09:30+09:00",
-   "first_seen": "2026-11-13T09:52+09:00"
   }
  ]
 }
