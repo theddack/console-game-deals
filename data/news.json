@@ -1,8 +1,16 @@
 {
- "updated": "2026-11-21T10:57+09:00",
+ "updated": "2026-11-21T18:25+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2366906",
+   "source": "루리웹 콘솔 뉴스",
+   "title": "마블 울버린 블프를 맞아 PS5버전 출시 이후 첫 할인 50달러에 판매",
+   "url": "https://bbs.ruliweb.com/news/board/1001/read/2366906",
+   "posted": "2026-11-21T17:10+09:00",
+   "first_seen": "2026-11-21T18:25+09:00"
+  },
   {
    "id": "psblog:https://blog.ko.playstation.com/2026/11/20/20261120-psplus/",
    "source": "PS 블로그",
