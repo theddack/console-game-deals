@@ -1,8 +1,38 @@
 {
- "updated": "2026-11-22T01:54+09:00",
+ "updated": "2026-11-22T11:29+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109269",
+   "source": "루리웹",
+   "title": "[스위치] 프린세스피치 쇼타임 29.800 (유배)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109269",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-22T08:24+09:00",
+   "first_seen": "2026-11-22T11:29+09:00"
+  },
+  {
+   "id": "루리웹:109268",
+   "source": "루리웹",
+   "title": "[스위치] 마리오 vs 동키콩 26,800(택배비별도)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109268",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-22T08:13+09:00",
+   "first_seen": "2026-11-22T11:29+09:00"
+  },
+  {
+   "id": "루리웹:109266",
+   "source": "루리웹",
+   "title": "[스위치] 제노블레이드 크로니클 크로스 34,800 (지역한정)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109266",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-22T08:07+09:00",
+   "first_seen": "2026-11-22T11:29+09:00"
+  },
   {
    "id": "뽐뿌:750552",
    "source": "뽐뿌",
