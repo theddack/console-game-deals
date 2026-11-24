@@ -22,7 +22,7 @@ PlayStation Store와 닌텐도 가격 조회는 공식 공개 API가 아니어�
 GitHub Actions 예약은 6시간쯤 늦게 돌았습니다 (09:23 예약이 15:46에). 그래서 항공권 프로젝트처럼
 Google Apps Script 가 KST 09·19시 10분 전후에 수집을 겁니다. 설정 방법은 `scripts/apps_script_trigger.gs` 맨 위에 있습니다.
 
-Actions 예약(KST 10:40 · 20:40)은 비상용으로 남겨 둡니다. 최근 9시간 30분 안에 수집했으면 아무것도 하지 않고,
+Actions 예약(KST 10:40 · 20:40)은 비상용으로 남겨 둡니다. 최근 13시간 안에 수집했으면 아무것도 하지 않고,
 Apps Script 가 멈췄을 때만 대신 수집합니다. 핫딜은 RSS 에 최근 글만 담기므로(뽐뿌는 1시간 남짓) Apps Script 가
 30분마다 따로 겁니다. Actions 의 30분 예약은 4~9시간 간격으로만 돌아서 비상용입니다.
 
