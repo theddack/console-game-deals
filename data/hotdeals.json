@@ -1,8 +1,18 @@
 {
- "updated": "2026-11-24T10:36+09:00",
+ "updated": "2026-11-24T20:59+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109344",
+   "source": "루리웹",
+   "title": "이마트미아점)스위치2 정품 카메라(29,900/0)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109344",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-24T20:59+09:00",
+   "first_seen": "2026-11-24T20:59+09:00"
+  },
   {
    "id": "루리웹:109310",
    "source": "루리웹",
@@ -452,16 +462,6 @@
    "kind": "game",
    "posted": "2026-11-17T17:27+09:00",
    "first_seen": "2026-11-18T03:07+09:00"
-  },
-  {
-   "id": "뽐뿌:749546",
-   "source": "뽐뿌",
-   "title": "[롯데온] 플레이스테이션 기프트카드 3만원권 (28,200원/무료)",
-   "url": "http://www.ppomppu.co.kr/zboard/view.php?id=ppomppu&no=749546",
-   "price": 28200,
-   "kind": "game",
-   "posted": "2026-11-17T17:22+09:00",
-   "first_seen": "2026-11-17T17:51+09:00"
   },
   {
    "id": "루리웹:109110",
