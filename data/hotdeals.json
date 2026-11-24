@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T22:59+09:00",
+ "updated": "2026-11-24T10:36+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
@@ -512,46 +512,6 @@
    "kind": "game",
    "posted": "2026-11-17T10:09+09:00",
    "first_seen": "2026-11-18T03:07+09:00"
-  },
-  {
-   "id": "루리웹:109100",
-   "source": "루리웹",
-   "title": "[아마존] 툼 레이더: 아틀란티스의 유산 디럭스 PS5 - 스틸북 69.99$",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109100",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-17T08:54+09:00",
-   "first_seen": "2026-11-17T09:56+09:00"
-  },
-  {
-   "id": "루리웹:109095",
-   "source": "루리웹",
-   "title": "[SSG] PS5 LEGO 호라이즌 어드벤처 / 12,800원 (무배)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109095",
-   "price": 12800,
-   "kind": "game",
-   "posted": "2026-11-17T01:02+09:00",
-   "first_seen": "2026-11-17T02:16+09:00"
-  },
-  {
-   "id": "루리웹:109090",
-   "source": "루리웹",
-   "title": "[플스스토어] PlayStation Plus 멤버십 할인 가격다양",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109090",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-16T19:47+09:00",
-   "first_seen": "2026-11-17T02:16+09:00"
-  },
-  {
-   "id": "루리웹:109084",
-   "source": "루리웹",
-   "title": "PS5 LEGO 호라이즌 어드벤처 12,800원 (쿠폰 사용시 7,800원)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109084",
-   "price": 12800,
-   "kind": "game",
-   "posted": "2026-11-16T16:49+09:00",
-   "first_seen": "2026-11-17T02:16+09:00"
   }
  ]
 }
