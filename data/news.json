@@ -1,10 +1,24 @@
 {
- "updated": "2026-11-26T00:27+09:00",
+ "updated": "2026-11-26T08:44+09:00",
  "errors": [],
- "fail_streak": {
-  "루리웹 콘솔 뉴스": 1
- },
+ "fail_streak": {},
  "items": [
+  {
+   "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367142",
+   "source": "루리웹 콘솔 뉴스",
+   "title": "북미/유럽 12월 PS Plus 에센셜 혜택 발표",
+   "url": "https://bbs.ruliweb.com/news/board/1001/read/2367142",
+   "posted": "2026-11-26T01:30+09:00",
+   "first_seen": "2026-11-26T08:44+09:00"
+  },
+  {
+   "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367141",
+   "source": "루리웹 콘솔 뉴스",
+   "title": "GTA 6 출시로 미국에서 블랙 프라이데이 전부터 PS5 콘솔 품절 사태 발생",
+   "url": "https://bbs.ruliweb.com/news/board/1001/read/2367141",
+   "posted": "2026-11-26T00:53+09:00",
+   "first_seen": "2026-11-26T08:44+09:00"
+  },
   {
    "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367069",
    "source": "루리웹 콘솔 뉴스",
