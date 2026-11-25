@@ -1,7 +1,9 @@
 {
- "updated": "2026-11-25T07:18+09:00",
+ "updated": "2026-11-26T00:27+09:00",
  "errors": [],
- "fail_streak": {},
+ "fail_streak": {
+  "루리웹 콘솔 뉴스": 1
+ },
  "items": [
   {
    "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367069",
