@@ -1,8 +1,48 @@
 {
- "updated": "2026-11-26T08:44+09:00",
+ "updated": "2026-11-26T15:47+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109395",
+   "source": "루리웹",
+   "title": "[컴퓨존] [PS5]듀얼센스GTA 6 블랙 한정판 사업자한정 112,900",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109395",
+   "price": null,
+   "kind": "device",
+   "posted": "2026-11-26T11:26+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
+  {
+   "id": "루리웹:109390",
+   "source": "루리웹",
+   "title": "[닌텐도e샵] 낚시스피릿 6080원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109390",
+   "price": 6080,
+   "kind": "game",
+   "posted": "2026-11-26T09:25+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
+  {
+   "id": "루리웹:109388",
+   "source": "루리웹",
+   "title": "[겜우리] NS 텀블팝 메모리즈 리미티드 에디션 박스 예약 판매 / 89,800원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109388",
+   "price": 89800,
+   "kind": "game",
+   "posted": "2026-11-26T09:01+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
+  {
+   "id": "루리웹:109387",
+   "source": "루리웹",
+   "title": "[겜우리] NS2 닌텐도 스위치 2 본체 셀렉트 원 세트 / 798,000원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109387",
+   "price": 798000,
+   "kind": "device",
+   "posted": "2026-11-26T09:00+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
   {
    "id": "루리웹:109382",
    "source": "루리웹",
@@ -282,86 +322,6 @@
    "kind": "game",
    "posted": "2026-11-19T16:02+09:00",
    "first_seen": "2026-11-20T00:13+09:00"
-  },
-  {
-   "id": "루리웹:109175",
-   "source": "루리웹",
-   "title": "(겜우리 등) PS5 하늘의궤적 1st 69800원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109175",
-   "price": 69800,
-   "kind": "game",
-   "posted": "2026-11-19T12:18+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109174",
-   "source": "루리웹",
-   "title": "[겜우리] NS 선셋 힐즈 예약 판매 / 42,900원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109174",
-   "price": 42900,
-   "kind": "game",
-   "posted": "2026-11-19T12:01+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109173",
-   "source": "루리웹",
-   "title": "[겜우리] NS2 본체 몬스터 헌터 와일드 세트 / 778,000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109173",
-   "price": 778000,
-   "kind": "device",
-   "posted": "2026-11-19T12:00+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109172",
-   "source": "루리웹",
-   "title": "(지마켓)PS5 GTA 바이스시티 팩+포스터 포함(89880,83520/무료배송)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109172",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-19T11:57+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109169",
-   "source": "루리웹",
-   "title": "[지마켓] ps5 콜 오브 듀티 모던 워페어4 /88900/2500",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109169",
-   "price": null,
-   "kind": "game",
-   "posted": "2026-11-19T11:09+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109168",
-   "source": "루리웹",
-   "title": "[닌텐도] NS2 몬스터헌터 와일즈 세트 예약 (778,000원)",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109168",
-   "price": 778000,
-   "kind": "game",
-   "posted": "2026-11-19T10:49+09:00",
-   "first_seen": "2026-11-19T14:50+09:00"
-  },
-  {
-   "id": "루리웹:109164",
-   "source": "루리웹",
-   "title": "[플스] 기프트 카드 5만원권 46000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109164",
-   "price": 46000,
-   "kind": "game",
-   "posted": "2026-11-19T08:39+09:00",
-   "first_seen": "2026-11-19T08:52+09:00"
-  },
-  {
-   "id": "루리웹:109157",
-   "source": "루리웹",
-   "title": "[플스] 플스 기프트 카드 10만원권 92000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109157",
-   "price": 92000,
-   "kind": "game",
-   "posted": "2026-11-19T03:00+09:00",
-   "first_seen": "2026-11-19T08:52+09:00"
   }
  ]
 }

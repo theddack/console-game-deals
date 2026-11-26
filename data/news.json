@@ -1,8 +1,24 @@
 {
- "updated": "2026-11-26T08:44+09:00",
+ "updated": "2026-11-26T15:47+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367176",
+   "source": "루리웹 콘솔 뉴스",
+   "title": "12월 국내 PS Plus 에센셜 월간 게임 발표",
+   "url": "https://bbs.ruliweb.com/news/board/1001/read/2367176",
+   "posted": "2026-11-26T13:28+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
+  {
+   "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367169",
+   "source": "루리웹 콘솔 뉴스",
+   "title": "일본 12월 PS Plus 에센셜 월간 게임",
+   "url": "https://bbs.ruliweb.com/news/board/1001/read/2367169",
+   "posted": "2026-11-26T12:14+09:00",
+   "first_seen": "2026-11-26T15:47+09:00"
+  },
   {
    "id": "rulinews:https://bbs.ruliweb.com/news/board/1001/read/2367142",
    "source": "루리웹 콘솔 뉴스",
