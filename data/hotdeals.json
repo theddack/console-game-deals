@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T02:30+09:00",
+ "updated": "2026-11-27T10:28+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
@@ -332,26 +332,6 @@
    "kind": "game",
    "posted": "2026-11-20T11:33+09:00",
    "first_seen": "2026-11-20T12:51+09:00"
-  },
-  {
-   "id": "루리웹:109204",
-   "source": "루리웹",
-   "title": "[닌텐도] 하데스 75% 할인 7,000원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109204",
-   "price": 7000,
-   "kind": "game",
-   "posted": "2026-11-20T06:42+09:00",
-   "first_seen": "2026-11-20T07:43+09:00"
-  },
-  {
-   "id": "루리웹:109202",
-   "source": "루리웹",
-   "title": "[게임S/W] [한국닌텐도] 해적무쌍4 9800원",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109202",
-   "price": 9800,
-   "kind": "game",
-   "posted": "2026-11-20T02:31+09:00",
-   "first_seen": "2026-11-20T07:43+09:00"
   }
  ]
 }
