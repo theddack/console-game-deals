@@ -1,8 +1,48 @@
 {
- "updated": "2026-11-27T10:28+09:00",
+ "updated": "2026-11-27T19:02+09:00",
  "errors": [],
  "fail_streak": {},
  "items": [
+  {
+   "id": "루리웹:109429",
+   "source": "루리웹",
+   "title": "[겜우리] PS5 진격의 거인 3 스페셜 트래져 박스 / 255,700원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109429",
+   "price": 255700,
+   "kind": "game",
+   "posted": "2026-11-27T12:01+09:00",
+   "first_seen": "2026-11-27T19:02+09:00"
+  },
+  {
+   "id": "루리웹:109428",
+   "source": "루리웹",
+   "title": "[겜우리] PS5 식혼도 블루 피에타 리미티드 에디션 / 79,800원",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109428",
+   "price": 79800,
+   "kind": "game",
+   "posted": "2026-11-27T12:00+09:00",
+   "first_seen": "2026-11-27T19:02+09:00"
+  },
+  {
+   "id": "루리웹:109427",
+   "source": "루리웹",
+   "title": "[무신사] PS5 PRO 선착순 판매 11/28 오후8시 (1,298,000원)",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109427",
+   "price": 1298000,
+   "kind": "device",
+   "posted": "2026-11-27T11:37+09:00",
+   "first_seen": "2026-11-27T19:02+09:00"
+  },
+  {
+   "id": "루리웹:109423",
+   "source": "루리웹",
+   "title": "H2몰 겨울할인 프로모션 마블코스믹인베이젼 디럭스 에디션 스위치1/2/PS5 할인",
+   "url": "https://bbs.ruliweb.com/market/board/1020/read/109423",
+   "price": null,
+   "kind": "game",
+   "posted": "2026-11-27T10:54+09:00",
+   "first_seen": "2026-11-27T19:02+09:00"
+  },
   {
    "id": "루리웹:109417",
    "source": "루리웹",
@@ -16,7 +56,7 @@
   {
    "id": "루리웹:109406",
    "source": "루리웹",
-   "title": "젤다의전설 ~꿈꾸는섬 재판매 시작 67,800",
+   "title": "[종료] 젤다의전설 ~꿈꾸는섬 재판매 시작 67,800",
    "url": "https://bbs.ruliweb.com/market/board/1020/read/109406",
    "price": null,
    "kind": "game",
@@ -322,16 +362,6 @@
    "kind": "game",
    "posted": "2026-11-20T13:11+09:00",
    "first_seen": "2026-11-20T21:29+09:00"
-  },
-  {
-   "id": "루리웹:109212",
-   "source": "루리웹",
-   "title": "[게임터치몰] PS5 콜 오브 듀티 모던 워페어 4 /88,900/3,000",
-   "url": "https://bbs.ruliweb.com/market/board/1020/read/109212",
-   "price": 88900,
-   "kind": "game",
-   "posted": "2026-11-20T11:33+09:00",
-   "first_seen": "2026-11-20T12:51+09:00"
   }
  ]
 }
